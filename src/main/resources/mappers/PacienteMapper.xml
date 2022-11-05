@@ -10,7 +10,17 @@
         <id property='tipo_id' column='tipo_id' typeHandler="org.apache.ibatis.type.EnumTypeHandler"/>
         <result property='fechaNacimiento' column='fecha_nacimiento'/>
         <result property='nombre' column='nombre'/>
+        <collection property="consultas" javaType="ArrayList" ofType="Consulta" resultMap="edu.eci.pdsw.samples.persistence.mybatisimpl.mappers.PacienteMapper.ConsultaResult" columnPrefix="co_"/>
+
     </resultMap>
+
+    <resultMap type='Consulta' id='ConsultaResult'>
+        <id property='id' column='idCONSULTAS'/>
+        <result property='fechayHora' column='fecha_y_hora'/>
+        <result property='resumen' column='resumen'/>
+    </resultMap>
+
+
 
     <select id="getPacientes" resultMap="PacienteResult">
         SELECT
@@ -21,4 +31,28 @@
         FROM
             PACIENTES as p
     </select>
+
+    <select id="getPaciente" resultMap="PacienteResult">
+        SELECT p.id, p.tipo_id, p.nombre, p.fecha_nacimiento, co.idCONSULTAS as co_id,
+               co.fecha_y_hora as fechayHora,
+               co.resumen as resumen, co.PACIENTES_id as co_PACIENTE_id, co.PACIENTES_tipo_id as co_PACIENTES_tipo_id
+        FROM
+            PACIENTES as p
+                JOIN CONSULTAS as co ON p.id = co.PACIENTES_id
+        WHERE (p.id = #{id})
+
+    </select>
+
+
+    <select id="getPacientesEnfermosMenores" resultMap="PacienteResult">
+        SELECT p.id, p.tipo_id, p.nombre, p.fecha_nacimiento, co.idCONSULTAS as co_id,
+               co.fecha_y_hora as fechayHora,
+               co.resumen as resumen, co.PACIENTES_id as co_PACIENTE_id, co.PACIENTES_tipo_id as co_PACIENTES_tipo_id
+        FROM
+            PACIENTES as p
+                JOIN CONSULTAS as co ON p.id = co.PACIENTES_id
+        WHERE (co.resumen LIKE '%hepatitis%' OR co.resumen LIKE '%varicela%') AND p.tipo_id LIKE '%TI%'
+
+    </select>
+
 </mapper>

@@ -17,6 +17,7 @@ public interface ServiciosPaciente {
      * @return
      * @throws ExcepcionServiciosSuscripciones 
      */
+
     public List<Paciente> consultarPacientes() throws ExcepcionServiciosSuscripciones;
         
     
@@ -30,7 +31,9 @@ public interface ServiciosPaciente {
      * identificacion, o si se presenta otro problema en las capas inferiores.
      */
     public Paciente consultarPacientesPorId(int id, TipoIdentificacion tipoIdentificacion) throws ExcepcionServiciosSuscripciones;
-    
+
+
+
     /**
      * Consulta los pacientes menores de edad que han tenido enfermedades contagiosas
      * @return el listado de pacientes menores de edad que han tenido enfermedades contagiosas,

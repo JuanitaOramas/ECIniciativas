@@ -16,12 +16,15 @@
  */
 package edu.eci.pdsw.samples.managedbeans;
 
+import com.google.inject.Inject;
 import edu.eci.pdsw.samples.entities.Paciente;
 import edu.eci.pdsw.samples.entities.TipoIdentificacion;
 import edu.eci.pdsw.samples.services.ExcepcionServiciosSuscripciones;
+import edu.eci.pdsw.samples.services.ServiciosPaciente;
 import edu.eci.pdsw.samples.services.ServiciosPacientesFactory;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
 /**
@@ -29,10 +32,16 @@ import javax.faces.bean.SessionScoped;
  * @author hcadavid
  */
 @ManagedBean(name = "mb")
+
 @SessionScoped
-public class PacientesBean {
+public class PacientesBean extends BasePageBean {
+
+    @Inject
+    private ServiciosPaciente serviciosPaciente;
 
     TipoIdentificacion tipoIdentificacion = TipoIdentificacion.CC;
+
+
 
     public void setTipoIdentificacion(TipoIdentificacion tipoIdentificacion) {
         this.tipoIdentificacion = tipoIdentificacion;
@@ -42,14 +51,24 @@ public class PacientesBean {
         return tipoIdentificacion;
     }
 
-    public List<Paciente> getData() throws Exception{
+    public Paciente getData(int id) throws Exception{
         try {
-            return ServiciosPacientesFactory.getInstance().getForumsServices().consultarPacientes();
+            return serviciosPaciente.consultarPacientesPorId(id,TipoIdentificacion.TI );
         } catch (ExcepcionServiciosSuscripciones ex) {
             
             throw ex;
         }
         
+    }
+
+    public List<Paciente> getPacientesMenores() throws Exception{
+        try {
+            return serviciosPaciente.consultarMenoresConEnfermedadContagiosa();
+        } catch (ExcepcionServiciosSuscripciones ex) {
+
+            throw ex;
+        }
+
     }
 
     public TipoIdentificacion[] getTiposIdentificacion() {

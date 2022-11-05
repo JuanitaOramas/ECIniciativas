@@ -61,31 +61,48 @@ Mostrar los pacientes menores de edad que en sus consultas se encuentren las enf
 1.  (20%) A partir de la especificación hecha en los métodos
     *consultarPacientesPorId* y *consultarMenoresConEnfermedadContagiosa* de la fachada de
     servicios (la parte lógica de la aplicación), implemente sólo una prueba (la que considere más importante para validar las especificaciones y los criterios de aceptación). Siga el esquema usado en ServicesJUnitTest para poblar la base de datos volátil y verificar el comportamiento de las operaciones de la lógica.
+    
+    Se realizan las pruebas para validar el correcto funcionamiento:
+    
+![img.png](img.png)
+
+![img_1.png](img_1.png)
 
 2.  (40%) Implemente la historia de usuario #1, agregando todo lo que haga falta en la capa de presentación, lógica y de persistencia. La vista debe implementarse en consultaPaciente.xhtml.
+
+![img_2.png](img_2.png)
+
+![img_3.png](img_3.png)
+
+Interface PacienteMapper:
+![img_4.png](img_4.png)
+
+resultmap:
+![img_5.png](img/img_5.png)
+consulta:
+![img_6.png](img/img_6.png)
+conexion con presentación:
+![img_7.png](img/img_7.png)
+
+Consultar paciente: (form)
+
 
 3.  (40%)Implemente la historia de usuario #2, agregando todo lo que haga falta en la capa de presentación, lógica y de persistencia. La vista debe implementarse en consultarMenoresEnfermedadContagiosa.xhtml.
 
 
-## Entrega
+![img_8.png](img/img_8.png)
+DAO:
+![img_9.png](img/img_9.png)
+PacienteMapper:
+![img_10.png](img/img_10.png)
+Bean:
+![img_12.png](img/img_12.png)
 
-1. Documentar la solución en Readme de Git.
+Consulta:
+![img_11.png](img/img_11.png)
 
-## Bono
+Form:
+![img_13.png](img/img_13.png)
 
-Si después de realizado el parcial, de forma INDIVIDUAL encuentra defectos menores (que impliquen a lo sumo cambiar 5 líneas de código), y que al corregirlos permiten que los puntos 2 o 3 funcionen:
-
-1. Haga los ajustes en su código.
-
-2. Haga un nuevo commit con el mensaje "entrega bono, ahora funciona el Punto XX" , donde XX es el punto que se corrigió. 
-
-3. Ejecute:
-
-    ```bash
-    $ git diff --stat HEAD HEAD^^
-    ```
-
-4. Si el resultado del comando anterior es menor o igual a 10, puede aplicar al bono.
-
-5. Comprima la nueva versión siguiendo el esquema indicado en el parcial, y súbalo a más tardar el 24 de Marzo a las 11:59pm en el espacio correspondiente.
-
+Resultado:
+![img_14.png](img/img_14.png)
