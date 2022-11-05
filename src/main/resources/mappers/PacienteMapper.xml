@@ -34,8 +34,8 @@
 
     <select id="getPaciente" resultMap="PacienteResult">
         SELECT p.id, p.tipo_id, p.nombre, p.fecha_nacimiento, co.idCONSULTAS as co_id,
-               co.fecha_y_hora as fechayHora,
-               co.resumen as resumen, co.PACIENTES_id as co_PACIENTE_id, co.PACIENTES_tipo_id as co_PACIENTES_tipo_id
+               co.fecha_y_hora as co_fecha_y_Hora,
+               co.resumen as co_resumen, co.PACIENTES_id as co_PACIENTE_id, co.PACIENTES_tipo_id as co_PACIENTES_tipo_id
         FROM
             PACIENTES as p
                 JOIN CONSULTAS as co ON p.id = co.PACIENTES_id
@@ -46,13 +46,13 @@
 
     <select id="getPacientesEnfermosMenores" resultMap="PacienteResult">
         SELECT p.id, p.tipo_id, p.nombre, p.fecha_nacimiento, co.idCONSULTAS as co_id,
-               co.fecha_y_hora as fechayHora,
-               co.resumen as resumen, co.PACIENTES_id as co_PACIENTE_id, co.PACIENTES_tipo_id as co_PACIENTES_tipo_id
+               co.fecha_y_hora as co_fecha_y_hora,
+               co.resumen as co_resumen, co.PACIENTES_id as co_PACIENTE_id, co.PACIENTES_tipo_id as co_PACIENTES_tipo_id
         FROM
             PACIENTES as p
                 JOIN CONSULTAS as co ON p.id = co.PACIENTES_id
         WHERE (co.resumen LIKE '%hepatitis%' OR co.resumen LIKE '%varicela%') AND p.tipo_id LIKE '%TI%'
-
+        ORDER BY p.fecha_nacimiento ASC
     </select>
 
 </mapper>

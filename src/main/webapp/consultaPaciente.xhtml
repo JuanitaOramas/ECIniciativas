@@ -12,13 +12,13 @@
         <h1>Consulta Paciente</h1>
         <h:form>
             <!--Por favor no cambiar el 'id':-->
-            <p:inputText id="identificacion_paciente" ></p:inputText>
+            <p:inputText id="identificacion_paciente" binding="#{input}" ></p:inputText>
             <p:selectOneMenu value="#{mb.tipoIdentificacion}" >
                 <f:selectItems value="#{mb.tiposIdentificacion}" />
             </p:selectOneMenu>
             <!--Por favor no cambiar el 'value':-->
-            <p:commandButton value="Consultar"></p:commandButton>
-        <p:dataTable id="pacientes" var="paciente" value="#{mb.getData(9876)}">
+            <p:commandButton  action="#{mb.getData(input.value)}" value="Consultar" update="pacientes"></p:commandButton>
+        <p:dataTable id="pacientes" var="paciente" value="#{mb.getPacienteBD()}" lazy="false" >
             <p:column headerText="Id">
                 <h:outputText value="#{paciente.id}" />
             </p:column>
@@ -29,10 +29,10 @@
                 <h:outputText value="#{paciente.nombre}" />
             </p:column>
             <p:column headerText="Fecha y hora Consulta">
-                <h:outputText value="#{consulta.fechayHora}" />
+                <h:outputText value="#{mb.getConsultaBD().fechayHora}" />
             </p:column>
             <p:column headerText="Resumen Consulta">
-                <h:outputText value="#{consulta.resumen}" />
+                <h:outputText value="#{mb.getConsultaBD().resumen}" />
             </p:column>
         </p:dataTable>
         </h:form>

@@ -18,6 +18,7 @@ package edu.eci.pdsw.samples.managedbeans;
 
 import com.google.inject.Inject;
 import edu.eci.pdsw.samples.entities.Paciente;
+import edu.eci.pdsw.samples.entities.Consulta;
 import edu.eci.pdsw.samples.entities.TipoIdentificacion;
 import edu.eci.pdsw.samples.services.ExcepcionServiciosSuscripciones;
 import edu.eci.pdsw.samples.services.ServiciosPaciente;
@@ -39,6 +40,9 @@ public class PacientesBean extends BasePageBean {
     @Inject
     private ServiciosPaciente serviciosPaciente;
 
+    private Consulta consulta;
+    private Paciente paciente;
+
     TipoIdentificacion tipoIdentificacion = TipoIdentificacion.CC;
 
 
@@ -53,12 +57,22 @@ public class PacientesBean extends BasePageBean {
 
     public Paciente getData(int id) throws Exception{
         try {
+            paciente = serviciosPaciente.consultarPacientesPorId(id,TipoIdentificacion.TI );
+            consulta = serviciosPaciente.consultarPacientesPorId(id,TipoIdentificacion.TI ).getConsultas().get(0);
+            System.out.println(">>>>>>>>>>>>>>>RESULTADO CONSULTA" + consulta);
             return serviciosPaciente.consultarPacientesPorId(id,TipoIdentificacion.TI );
         } catch (ExcepcionServiciosSuscripciones ex) {
             
             throw ex;
         }
         
+    }
+
+    public Consulta getConsultaBD(){
+        return consulta;
+    }
+    public Paciente getPacienteBD(){
+        return paciente;
     }
 
     public List<Paciente> getPacientesMenores() throws Exception{

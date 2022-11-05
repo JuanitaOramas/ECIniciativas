@@ -3,6 +3,7 @@
 ### PDSW – Procesos de desarrollo de Software
 ### Parcial Segundo Tercio
 
+#### Integrantes: Juanita Oramas y Wilson Delgado 
 
 **IMPORTANTE**
 
@@ -58,24 +59,27 @@ Dado un número y tipo de identificacion de un paciente, mostrar el paciente y l
 Mostrar los pacientes menores de edad que en sus consultas se encuentren las enfermedades: hepatitis o varicela.
 
 
-1.  (20%) A partir de la especificación hecha en los métodos
+1. (20%) A partir de la especificación hecha en los métodos
     *consultarPacientesPorId* y *consultarMenoresConEnfermedadContagiosa* de la fachada de
-    servicios (la parte lógica de la aplicación), implemente sólo una prueba (la que considere más importante para validar las especificaciones y los criterios de aceptación). Siga el esquema usado en ServicesJUnitTest para poblar la base de datos volátil y verificar el comportamiento de las operaciones de la lógica.
+    servicios (la parte lógica de la aplicación), implemente solo una prueba (la que considere más importante para validar las especificaciones y los criterios de aceptación). Siga el esquema usado en ServicesJUnitTest para poblar la base de datos volátil y verificar el comportamiento de las operaciones de la lógica.
     
     Se realizan las pruebas para validar el correcto funcionamiento:
-    
-![img.png](img.png)
 
-![img_1.png](img_1.png)
+Primero se realizó el test, en el cual se valido si la identificiación, el tipo de identificación y el nombre coinciden. 
 
-2.  (40%) Implemente la historia de usuario #1, agregando todo lo que haga falta en la capa de presentación, lógica y de persistencia. La vista debe implementarse en consultaPaciente.xhtml.
+![img.png](img/img.png)
 
-![img_2.png](img_2.png)
+![img_1.png](img/img_1.png)
 
-![img_3.png](img_3.png)
+2. (40%) Implemente la historia de usuario #1, agregando todo lo que haga falta en la capa de presentación, lógica y de persistencia. La vista debe implementarse en consultaPaciente.xhtml.
+
+Para esta historia de usuario se implementa el método consultarPacientesPorId: 
+![img_2.png](img/img_2.png)
+
+![img_3.png](img/img_3.png)
 
 Interface PacienteMapper:
-![img_4.png](img_4.png)
+![img_4.png](img/img_4.png)
 
 resultmap:
 ![img_5.png](img/img_5.png)
@@ -85,7 +89,7 @@ conexion con presentación:
 ![img_7.png](img/img_7.png)
 
 Consultar paciente: (form)
-
+![img_5.png](img_5.png)
 
 3.  (40%)Implemente la historia de usuario #2, agregando todo lo que haga falta en la capa de presentación, lógica y de persistencia. La vista debe implementarse en consultarMenoresEnfermedadContagiosa.xhtml.
 
@@ -104,5 +108,5 @@ Consulta:
 Form:
 ![img_13.png](img/img_13.png)
 
-Resultado:
+Formulario en orden:
 ![img_14.png](img/img_14.png)
