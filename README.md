@@ -151,4 +151,5 @@ En la capa de presentación se muestra la consulta con pacientes menores de edad
 ![img_13.png](img/img_13.png)
 
 Formulario con los menores de edad en orden de edad (de mayor a menor) , organizados en una tabla para mejor visualización:
+
 ![img_14.png](img/img_14.png)
