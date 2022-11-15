@@ -10,30 +10,29 @@ import org.mybatis.guice.datasource.helper.JdbcHelper;
 
 import static com.google.inject.Guice.createInjector;
 import com.google.inject.Injector;
-import edu.eci.pdsw.samples.persistence.DaoPaciente;
-import edu.eci.pdsw.samples.persistence.mybatisimpl.MyBatisDAOPaciente;
-import edu.eci.pdsw.samples.services.impl.ServiciosPacienteImpl;
+import edu.eci.pdsw.samples.persistence.DaoIniciativa;
+import edu.eci.pdsw.samples.persistence.mybatisimpl.MyBatisDAOIniciativa;
 
 /**
  *
  * @author hcadavid
  */
-public class ServiciosPacientesFactory {
+public class ServiciosIniciativasFactory {
 
-    private static ServiciosPacientesFactory instance = new ServiciosPacientesFactory();
+    private static ServiciosIniciativasFactory instance = new ServiciosIniciativasFactory();
 
     private static Injector injector;
     private static Injector testingInjector;
 
-    private ServiciosPacientesFactory() {
+    private ServiciosIniciativasFactory() {
         injector = createInjector(new XMLMyBatisModule() {
 
             @Override
             protected void initialize() {
                 install(JdbcHelper.MySQL);
                 setClassPathResource("mybatis-config.xml");
-                bind(ServiciosPaciente.class).to(ServiciosPacienteImpl.class);
-                bind(DaoPaciente.class).to(MyBatisDAOPaciente.class);
+                bind(ServiciosIniciativas.class).to(edu.eci.pdsw.samples.services.impl.ServiciosIniciativas.class);
+                bind(DaoIniciativa.class).to(MyBatisDAOIniciativa.class);
 
             }
 
@@ -46,8 +45,8 @@ public class ServiciosPacientesFactory {
             protected void initialize() {
                 install(JdbcHelper.MySQL);
                 setClassPathResource("mybatis-config-h2.xml");
-                bind(ServiciosPaciente.class).to(ServiciosPacienteImpl.class);
-                bind(DaoPaciente.class).to(MyBatisDAOPaciente.class);
+                bind(ServiciosIniciativas.class).to(edu.eci.pdsw.samples.services.impl.ServiciosIniciativas.class);
+                bind(DaoIniciativa.class).to(MyBatisDAOIniciativa.class);
             }
 
         }
@@ -55,20 +54,20 @@ public class ServiciosPacientesFactory {
 
     }
 
-    public ServiciosPaciente getForumsServices() {
-        return injector.getInstance(ServiciosPaciente.class);
+    public ServiciosIniciativas getForumsServices() {
+        return injector.getInstance(ServiciosIniciativas.class);
     }
 
-    public ServiciosPaciente getTestingForumServices() {
-        return testingInjector.getInstance(ServiciosPaciente.class);
+    public ServiciosIniciativas getTestingForumServices() {
+        return testingInjector.getInstance(ServiciosIniciativas.class);
     }
 
-    public static ServiciosPacientesFactory getInstance() {
+    public static ServiciosIniciativasFactory getInstance() {
         return instance;
     }
 
     public static void main(String a[]) throws ExcepcionServiciosSuscripciones {
-        System.out.println(ServiciosPacientesFactory.getInstance().getForumsServices().consultarPacientes());
+        System.out.println(ServiciosIniciativasFactory.getInstance().getForumsServices().consultarIniciativas());
     }
 
 }

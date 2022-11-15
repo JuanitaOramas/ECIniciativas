@@ -17,15 +17,10 @@
 package edu.eci.pdsw.samples.persistence.mybatisimpl.mappers;
 
 import java.util.List;
-import java.util.Set;
 
-import edu.eci.pdsw.samples.entities.Paciente;
-import edu.eci.pdsw.samples.entities.TipoIdentificacion;
-import org.apache.ibatis.annotations.Insert;
+import edu.eci.pdsw.samples.entities.Iniciativa;
+import edu.eci.pdsw.samples.entities.estado;
 import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
 
 /**
  *
@@ -33,10 +28,10 @@ import org.apache.ibatis.annotations.Select;
  */
 public interface PacienteMapper {
 
-    List<Paciente> getPacientes();
+    List<Iniciativa> getIniciativas();
 
-    Paciente getPaciente(@Param("id") int id, @Param("tipoId") TipoIdentificacion tipoIdentificacion);
+    Iniciativa getPaciente(@Param("id") int id, @Param("tipoId") estado estado);
 
-    List<Paciente> getPacientesEnfermosMenores();
+    List<Iniciativa> getPacientesEnfermosMenores();
 
 }

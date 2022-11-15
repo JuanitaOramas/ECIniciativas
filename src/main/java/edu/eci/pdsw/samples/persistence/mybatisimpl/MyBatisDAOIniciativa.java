@@ -18,9 +18,9 @@ package edu.eci.pdsw.samples.persistence.mybatisimpl;
 
 import com.google.inject.Inject;
 import edu.eci.pdsw.samples.entities.Consulta;
-import edu.eci.pdsw.samples.entities.Paciente;
-import edu.eci.pdsw.samples.entities.TipoIdentificacion;
-import edu.eci.pdsw.samples.persistence.DaoPaciente;
+import edu.eci.pdsw.samples.entities.Iniciativa;
+import edu.eci.pdsw.samples.entities.estado;
+import edu.eci.pdsw.samples.persistence.DaoIniciativa;
 import edu.eci.pdsw.samples.persistence.PersistenceException;
 import edu.eci.pdsw.samples.persistence.mybatisimpl.mappers.PacienteMapper;
 import java.util.List;
@@ -29,16 +29,16 @@ import java.util.List;
  *
  * @author hcadavid
  */
-public class MyBatisDAOPaciente implements DaoPaciente {
+public class MyBatisDAOIniciativa implements DaoIniciativa {
 
 
     @Inject
     PacienteMapper pacienteMapper;
     
     @Override
-    public Paciente load(int id, TipoIdentificacion tipoIdentificacion) throws PersistenceException {
+    public Iniciativa load(int id, estado estado) throws PersistenceException {
         try{
-            return pacienteMapper.getPaciente(id,tipoIdentificacion);
+            return pacienteMapper.getPaciente(id, estado);
         }
         catch(Exception e){
             throw new PersistenceException("Error al consultar los pacientes:"+e.getLocalizedMessage(), e);
@@ -46,9 +46,9 @@ public class MyBatisDAOPaciente implements DaoPaciente {
     }
 
     @Override
-    public List<Paciente> loadAll() throws PersistenceException {
+    public List<Iniciativa> loadAll() throws PersistenceException {
         try{
-            return pacienteMapper.getPacientes();
+            return pacienteMapper.getIniciativas();
         }
         catch(Exception e){
             throw new PersistenceException("Error al consultar los pacientes:"+e.getLocalizedMessage(), e);
@@ -56,7 +56,7 @@ public class MyBatisDAOPaciente implements DaoPaciente {
     }
 
     @Override
-    public List<Paciente> loadMenoresConEnfermedad() throws PersistenceException {
+    public List<Iniciativa> loadMenoresConEnfermedad() throws PersistenceException {
         try{
             return pacienteMapper.getPacientesEnfermosMenores();
 
@@ -67,17 +67,17 @@ public class MyBatisDAOPaciente implements DaoPaciente {
     }
 
     @Override
-    public void save(Paciente e) throws PersistenceException {
+    public void save(Iniciativa e) throws PersistenceException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void update(Paciente e) throws PersistenceException {
+    public void update(Iniciativa e) throws PersistenceException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void addConsulta(int id, TipoIdentificacion tipoId, Consulta c) throws PersistenceException {
+    public void addConsulta(int id, estado tipoId, Consulta c) throws PersistenceException {
 
     }
 

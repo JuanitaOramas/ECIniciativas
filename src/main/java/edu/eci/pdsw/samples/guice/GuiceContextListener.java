@@ -3,10 +3,9 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
-import edu.eci.pdsw.samples.persistence.DaoPaciente;
-import edu.eci.pdsw.samples.persistence.mybatisimpl.MyBatisDAOPaciente;
-import edu.eci.pdsw.samples.services.ServiciosPaciente;
-import edu.eci.pdsw.samples.services.impl.ServiciosPacienteImpl;
+import edu.eci.pdsw.samples.persistence.DaoIniciativa;
+import edu.eci.pdsw.samples.persistence.mybatisimpl.MyBatisDAOIniciativa;
+import edu.eci.pdsw.samples.services.ServiciosIniciativas;
 import org.mybatis.guice.XMLMyBatisModule;
 import org.mybatis.guice.datasource.helper.JdbcHelper;
 import com.google.inject.Guice;
@@ -26,8 +25,8 @@ public class GuiceContextListener implements ServletContextListener {
                 setEnvironmentId("development");
                 setClassPathResource("mybatis-config.xml");
 
-                bind(ServiciosPaciente.class).to(ServiciosPacienteImpl.class);
-                bind(DaoPaciente.class).to(MyBatisDAOPaciente.class);
+                bind(ServiciosIniciativas.class).to(edu.eci.pdsw.samples.services.impl.ServiciosIniciativas.class);
+                bind(DaoIniciativa.class).to(MyBatisDAOIniciativa.class);
             }
         });
         servletContextEvent.getServletContext().setAttribute(Injector.class.getName(), injector);

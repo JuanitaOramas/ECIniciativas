@@ -3,34 +3,34 @@ package edu.eci.pdsw.samples.services;
 
 import java.util.List;
 
-import edu.eci.pdsw.samples.entities.Paciente;
-import edu.eci.pdsw.samples.entities.TipoIdentificacion;
+import edu.eci.pdsw.samples.entities.Iniciativa;
+import edu.eci.pdsw.samples.entities.estado;
 
 /**
  *
- * @author 2106913
+ * @author
  */
-public interface ServiciosPaciente {
+public interface ServiciosIniciativas {
 
     /**
-     * Consultar todos los pacientes
+     * Consultar todas las iniciativas
      * @return
      * @throws ExcepcionServiciosSuscripciones 
      */
 
-    public List<Paciente> consultarPacientes() throws ExcepcionServiciosSuscripciones;
+    public List<Iniciativa> consultarIniciativas() throws ExcepcionServiciosSuscripciones;
         
     
     /**
-     * Consulta un paciente a partir de su numero y tipo de identificacion
+     * Consulta una iniciativa  a partir de su
      * @param id numero de identificacion
-     * @param tipoIdentificacion
+     * @param estado
      * @return el paciente con sus consultas ordenadas de la mas
      * reciente a la mas antigua
      * @throws ExcepcionServiciosSuscripciones si NO existe un paciente con dicha
      * identificacion, o si se presenta otro problema en las capas inferiores.
      */
-    public Paciente consultarPacientesPorId(int id, TipoIdentificacion tipoIdentificacion) throws ExcepcionServiciosSuscripciones;
+    public Iniciativa consultarPacientesPorId(int id, estado estado) throws ExcepcionServiciosSuscripciones;
 
 
 
@@ -41,7 +41,7 @@ public interface ServiciosPaciente {
      * 'varicela'
      * @throws ExcepcionServiciosSuscripciones si se presenta otro problema en las capas inferiores.
      */
-    public List<Paciente> consultarMenoresConEnfermedadContagiosa() throws ExcepcionServiciosSuscripciones;
+    public List<Iniciativa> consultarMenoresConEnfermedadContagiosa() throws ExcepcionServiciosSuscripciones;
     
 
 }

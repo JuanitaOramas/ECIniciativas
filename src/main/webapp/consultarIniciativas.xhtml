@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:o="http://omnifaces.org/ui"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title></title>
+</h:head>
+<h:body>
+    <h1>Consulta Paciente</h1>
+    <h:form>
+
+        <p:dataTable id="iniciativas" var="iniciativas" value="#{mb.getIniciativas()}" paginator="true" paginatorposition="bottom" rows="3"  >
+            <p:column headerText="Id">
+                <h:outputText value="#{iniciativas.idIniciativa}" />
+            </p:column>
+            <p:column headerText="estado">
+                <h:outputText value="#{iniciativas.estado}" />
+            </p:column>
+            <p:column headerText="descripción">
+                <h:outputText value="#{iniciativas.descripcion}" />
+            </p:column>
+<!--            <p:column headerText="palabrasClave">-->
+<!--                <h:outputText value="#{iniciativas.palabrasClave}" />-->
+<!--            </p:column>-->
+            <p:column headerText="fecha">
+                <h:outputText value="#{iniciativas.fecha}" />
+            </p:column>
+        </p:dataTable>
+    </h:form>
+</h:body>
+</html>
+

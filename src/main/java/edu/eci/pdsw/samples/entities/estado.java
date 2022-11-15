@@ -1,8 +1,8 @@
 package edu.eci.pdsw.samples.entities;
 
-public enum TipoIdentificacion {
+public enum estado {
     CC,
-    CE,
-    RC,
+    En_Espera_de_Revision,
+    lo,
     TI
 }

@@ -11,7 +11,7 @@
     <h:body>
         <h1>Consulta de menores que han padecido enfermedad contagiosa</h1>
         <h:form>
-            <p:dataTable id="pacientes" var="paciente" value="#{mb.getPacientesMenores()}">
+            <p:dataTable id="iniciativas" var="paciente" value="#{mb.getPacientesMenores()}">
                 <p:column headerText="Id">
                     <h:outputText value="#{paciente.id}" />
                 </p:column>

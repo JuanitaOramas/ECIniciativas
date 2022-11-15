@@ -13,12 +13,12 @@
         <h:form>
             <!--Por favor no cambiar el 'id':-->
             <p:inputText id="identificacion_paciente" binding="#{input}" ></p:inputText>
-            <p:selectOneMenu value="#{mb.tipoIdentificacion}" >
+            <p:selectOneMenu value="#{mb.estado}" >
                 <f:selectItems value="#{mb.tiposIdentificacion}" />
             </p:selectOneMenu>
             <!--Por favor no cambiar el 'value':-->
-            <p:commandButton  action="#{mb.getData(input.value)}" value="Consultar" update="pacientes"></p:commandButton>
-        <p:dataTable id="pacientes" var="paciente" value="#{mb.getPacienteBD()}" lazy="false" >
+            <p:commandButton  action="#{mb.getData(input.value)}" value="Consultar" update="iniciativas"></p:commandButton>
+        <p:dataTable id="iniciativas" var="paciente" value="#{mb.getPacienteBD()}" lazy="false" >
             <p:column headerText="Id">
                 <h:outputText value="#{paciente.id}" />
             </p:column>

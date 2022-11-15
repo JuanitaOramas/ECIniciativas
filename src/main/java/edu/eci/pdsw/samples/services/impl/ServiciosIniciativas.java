@@ -6,25 +6,25 @@
 package edu.eci.pdsw.samples.services.impl;
 
 import com.google.inject.Inject;
-import edu.eci.pdsw.samples.entities.Paciente;
-import edu.eci.pdsw.samples.entities.TipoIdentificacion;
-import edu.eci.pdsw.samples.persistence.DaoPaciente;
+import edu.eci.pdsw.samples.entities.Iniciativa;
+import edu.eci.pdsw.samples.entities.estado;
+import edu.eci.pdsw.samples.persistence.DaoIniciativa;
 import edu.eci.pdsw.samples.persistence.PersistenceException;
 import edu.eci.pdsw.samples.services.ExcepcionServiciosSuscripciones;
-import edu.eci.pdsw.samples.services.ServiciosPaciente;
+
 import java.util.List;
 
 /**
  *
  * @author hcadavid
  */
-public class ServiciosPacienteImpl implements ServiciosPaciente {
+public class ServiciosIniciativas implements edu.eci.pdsw.samples.services.ServiciosIniciativas {
 
     @Inject
-    private DaoPaciente daoPaciente;
+    private DaoIniciativa daoPaciente;
 
     @Override
-    public List<Paciente> consultarPacientes() throws ExcepcionServiciosSuscripciones {
+    public List<Iniciativa> consultarIniciativas() throws ExcepcionServiciosSuscripciones {
         try {
             return daoPaciente.loadAll();
         } catch (PersistenceException ex) {
@@ -33,16 +33,16 @@ public class ServiciosPacienteImpl implements ServiciosPaciente {
     }
 
     @Override
-    public Paciente consultarPacientesPorId(int id, TipoIdentificacion tipoIdentificacion) throws ExcepcionServiciosSuscripciones {
+    public Iniciativa consultarPacientesPorId(int id, estado estado) throws ExcepcionServiciosSuscripciones {
         try {
-            return daoPaciente.load(id, tipoIdentificacion);
+            return daoPaciente.load(id, estado);
         } catch (PersistenceException ex) {
             throw new ExcepcionServiciosSuscripciones("Error al realizar la consulta:"+ex.getLocalizedMessage(), ex);
         }
     }
 
     @Override
-    public List<Paciente> consultarMenoresConEnfermedadContagiosa() throws ExcepcionServiciosSuscripciones {
+    public List<Iniciativa> consultarMenoresConEnfermedadContagiosa() throws ExcepcionServiciosSuscripciones {
         try {
 
             return daoPaciente.loadMenoresConEnfermedad();

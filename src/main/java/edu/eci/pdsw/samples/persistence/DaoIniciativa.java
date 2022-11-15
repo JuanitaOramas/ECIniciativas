@@ -17,8 +17,8 @@
 package edu.eci.pdsw.samples.persistence;
 
 import edu.eci.pdsw.samples.entities.Consulta;
-import edu.eci.pdsw.samples.entities.Paciente;
-import edu.eci.pdsw.samples.entities.TipoIdentificacion;
+import edu.eci.pdsw.samples.entities.Iniciativa;
+import edu.eci.pdsw.samples.entities.estado;
 
 import java.util.List;
 
@@ -26,18 +26,18 @@ import java.util.List;
  *
  * @author hcadavid
  */
-public interface DaoPaciente {
+public interface DaoIniciativa {
  
-    public Paciente load(int id, TipoIdentificacion tipoIdentificacion) throws PersistenceException;
+    public Iniciativa load(int id, estado estado) throws PersistenceException;
     
-    public List<Paciente> loadAll() throws PersistenceException;
+    public List<Iniciativa> loadAll() throws PersistenceException;
 
-    public List<Paciente> loadMenoresConEnfermedad() throws PersistenceException;
+    public List<Iniciativa> loadMenoresConEnfermedad() throws PersistenceException;
 
-    public void save(Paciente e) throws PersistenceException;
+    public void save(Iniciativa e) throws PersistenceException;
     
-    public void update(Paciente e) throws PersistenceException;
+    public void update(Iniciativa e) throws PersistenceException;
     
-    public void addConsulta(int id, TipoIdentificacion tipoId, Consulta c) throws PersistenceException;
+    public void addConsulta(int id, estado tipoId, Consulta c) throws PersistenceException;
     
 }
