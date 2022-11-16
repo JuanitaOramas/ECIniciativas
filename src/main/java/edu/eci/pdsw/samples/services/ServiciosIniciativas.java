@@ -23,14 +23,12 @@ public interface ServiciosIniciativas {
     
     /**
      * Consulta una iniciativa  a partir de su
-     * @param id numero de identificacion
-     * @param estado
-     * @return el paciente con sus consultas ordenadas de la mas
-     * reciente a la mas antigua
+     * @param palabraClave
+     * @return
      * @throws ExcepcionServiciosSuscripciones si NO existe un paciente con dicha
      * identificacion, o si se presenta otro problema en las capas inferiores.
      */
-    public Iniciativa consultarPacientesPorId(int id, estado estado) throws ExcepcionServiciosSuscripciones;
+    public List<Iniciativa>  consultarIniciativasPorPalabraClave(String palabraClave) throws ExcepcionServiciosSuscripciones;
 
 
 
@@ -41,7 +39,7 @@ public interface ServiciosIniciativas {
      * 'varicela'
      * @throws ExcepcionServiciosSuscripciones si se presenta otro problema en las capas inferiores.
      */
-    public List<Iniciativa> consultarMenoresConEnfermedadContagiosa() throws ExcepcionServiciosSuscripciones;
+//    public List<Iniciativa> consultarMenoresConEnfermedadContagiosa() throws ExcepcionServiciosSuscripciones;
     
 
 }

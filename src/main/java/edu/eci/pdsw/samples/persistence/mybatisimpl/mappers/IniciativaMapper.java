@@ -26,12 +26,14 @@ import org.apache.ibatis.annotations.Param;
  *
  * @author hcadavid
  */
-public interface PacienteMapper {
+public interface IniciativaMapper {
 
     List<Iniciativa> getIniciativas();
 
-    Iniciativa getPaciente(@Param("id") int id, @Param("tipoId") estado estado);
+    List<Iniciativa> getIniciativasPorPalabraClave(@Param("Palabra")  String Palabra);
 
-    List<Iniciativa> getPacientesEnfermosMenores();
+    //Iniciativa getPaciente(@Param("id") int id, @Param("tipoId") estado estado);
+
+    //List<Iniciativa> getPacientesEnfermosMenores();
 
 }

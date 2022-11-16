@@ -12,7 +12,7 @@
     <h1>Consulta Paciente</h1>
     <h:form>
 
-        <p:dataTable id="iniciativas" var="iniciativas" value="#{mb.getIniciativas()}" paginator="true" paginatorposition="bottom" rows="3"  >
+        <p:dataTable id="iniciativas" var="iniciativas" value="#{mb.getIniciativas()}" paginator="true" paginatorposition="bottom" rows="3" dynamic="true"  >
             <p:column headerText="Id">
                 <h:outputText value="#{iniciativas.idIniciativa}" />
             </p:column>

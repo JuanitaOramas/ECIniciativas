@@ -44,7 +44,7 @@ public class IniciativasBean extends BasePageBean {
 
     estado estado;
 
-
+    List<Iniciativa> listaIniciativas;
 
     public void setTipoIdentificacion(estado estado) {
         this.estado = estado;
@@ -64,38 +64,25 @@ public class IniciativasBean extends BasePageBean {
         }
     }
 
-//    public Iniciativa getData(int id) throws Exception{
-//        try {
-//            iniciativa = serviciosIniciativas.consultarPacientesPorId(id, estado.TI );
-//            consulta = serviciosIniciativas.consultarPacientesPorId(id, estado.TI ).getIniciativas().get(0);
-//            System.out.println(">>>>>>>>>>>>>>>RESULTADO CONSULTA" + consulta);
-//            return serviciosIniciativas.consultarPacientesPorId(id, estado.TI );
-//        } catch (ExcepcionServiciosSuscripciones ex) {
-//
-//            throw ex;
-//        }
-//
-//    }
-
-    public Consulta getConsultaBD(){
-        return consulta;
-    }
-    public Iniciativa getPacienteBD(){
-        return iniciativa;
-    }
-
-    public List<Iniciativa> getPacientesMenores() throws Exception{
+    public List<Iniciativa> getIniciativasPorPalabraClave(String palabra) throws Exception{
         try {
-            return serviciosIniciativas.consultarMenoresConEnfermedadContagiosa();
+            listaIniciativas = serviciosIniciativas.consultarIniciativasPorPalabraClave(palabra);
+            return serviciosIniciativas.consultarIniciativasPorPalabraClave(palabra);
         } catch (ExcepcionServiciosSuscripciones ex) {
 
             throw ex;
         }
-
     }
 
-    public estado[] getTiposIdentificacion() {
-        return estado.values();
+    public List<Iniciativa> getIniciativasPorPalabraClaveList(){
+        return listaIniciativas;
     }
+
+
+
+
+//    public estado[] getTiposIdentificacion() {
+//        return estado.values();
+//    }
     
 }

@@ -28,7 +28,7 @@ public class Iniciativa {
     private String descripcion;
 //    private String palabrasClave;
     private Date fecha;
-//    List<Consulta> consultas;
+
 
 
     public Iniciativa(int idIniciativa, String estado, String descripcion, Date fecha) {
@@ -54,15 +54,15 @@ public class Iniciativa {
     public Date getFecha() {return fecha;}
     public void setFecha(Date fecha) {this.fecha = fecha;}
 
-    //    @Override
-//    public String toString() {
-//        StringBuffer rep = new StringBuffer("Paciente: { id:"+id+", tipo_id:"+tipo_id+", nombre: "+nombre+", fechaNacimiento: "+fechaNacimiento+", consultas : [\n");
+        @Override
+    public String toString() {
+        StringBuffer rep = new StringBuffer("Iniciativa: { id:"+idIniciativa+", estado:"+estado+", descripcion: "+descripcion);
 //        for (Consulta c:consultas){
 //            rep.append(c+"\n");
 //        }
-//        rep.append("]");
-//        return rep.toString();
-//    }
+        rep.append("]");
+        return rep.toString();
+    }
     
     
     

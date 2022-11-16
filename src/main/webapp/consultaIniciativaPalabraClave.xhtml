@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:o="http://omnifaces.org/ui"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Consulta por Palabra Clave</title>
+<!--        <style> </style>-->
+    </h:head>
+    <h:body>
+        <h1>Consulta Paciente</h1>
+        <h:form>
+            <p:inputText id="identificacion_paciente" binding="#{input}" ></p:inputText>
+
+
+            <p:commandButton  action="#{mb.getIniciativasPorPalabraClave(input.value)}" value="Consultar" update="iniciativas"></p:commandButton>
+
+        <p:dataTable id="iniciativas" var="iniciativa" value="#{mb.getIniciativasPorPalabraClaveList()}" lazy="false" paginator="true" paginatorposition="bottom" rows="10" dynamic="true" >
+            <p:column headerText="Id">
+                <h:outputText value="#{iniciativa.idIniciativa}" />
+            </p:column>
+            <p:column headerText="estado">
+                <h:outputText value="#{iniciativa.estado}" />
+            </p:column>
+            <p:column headerText="descripción">
+                <h:outputText value="#{iniciativa.descripcion}" />
+        </p:column>
+            <!--            <p:column headerText="palabrasClave">-->
+            <!--                <h:outputText value="#{iniciativas.palabrasClave}" />-->
+            <!--            </p:column>-->
+            <p:column headerText="fecha">
+                <h:outputText value="#{iniciativa.fecha}" />
+            </p:column>
+        </p:dataTable>
+        </h:form>
+    </h:body>
+</html>
+

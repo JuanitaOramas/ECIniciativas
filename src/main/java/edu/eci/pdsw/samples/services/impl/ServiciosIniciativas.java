@@ -14,10 +14,7 @@ import edu.eci.pdsw.samples.services.ExcepcionServiciosSuscripciones;
 
 import java.util.List;
 
-/**
- *
- * @author hcadavid
- */
+
 public class ServiciosIniciativas implements edu.eci.pdsw.samples.services.ServiciosIniciativas {
 
     @Inject
@@ -32,23 +29,16 @@ public class ServiciosIniciativas implements edu.eci.pdsw.samples.services.Servi
         }
     }
 
+
     @Override
-    public Iniciativa consultarPacientesPorId(int id, estado estado) throws ExcepcionServiciosSuscripciones {
+    public List<Iniciativa> consultarIniciativasPorPalabraClave(String palabraClave) throws ExcepcionServiciosSuscripciones {
         try {
-            return daoPaciente.load(id, estado);
+            return daoPaciente.loadIniciativasPorPalabrasClave(palabraClave);
         } catch (PersistenceException ex) {
             throw new ExcepcionServiciosSuscripciones("Error al realizar la consulta:"+ex.getLocalizedMessage(), ex);
         }
     }
 
-    @Override
-    public List<Iniciativa> consultarMenoresConEnfermedadContagiosa() throws ExcepcionServiciosSuscripciones {
-        try {
 
-            return daoPaciente.loadMenoresConEnfermedad();
-        } catch (PersistenceException ex) {
-            throw new ExcepcionServiciosSuscripciones("Error al realizar la consulta:"+ex.getLocalizedMessage(), ex);
-        }
-    }
 
 }

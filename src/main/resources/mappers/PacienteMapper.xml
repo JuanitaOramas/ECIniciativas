@@ -3,14 +3,14 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="edu.eci.pdsw.samples.persistence.mybatisimpl.mappers.PacienteMapper">
+<mapper namespace="edu.eci.pdsw.samples.persistence.mybatisimpl.mappers.IniciativaMapper">
 
     <resultMap type='Iniciativa' id='IniciativasResult'>
         <id property='idIniciativa' column='idIniciativa'/>
         <id property='estado' column='estado'/>
         <result property='descripcion' column='descripcion'/>
         <result property='fecha' column='fecha'/>
-<!--        <collection property="consultas" javaType="ArrayList" ofType="Consulta" resultMap="edu.eci.pdsw.samples.persistence.mybatisimpl.mappers.PacienteMapper.ConsultaResult" columnPrefix="co_"/>-->
+<!--        <collection property="consultas" javaType="ArrayList" ofType="Consulta" resultMap="edu.eci.pdsw.samples.persistence.mybatisimpl.mappers.IniciativaMapper.ConsultaResult" />-->
     </resultMap>
 
     <resultMap type='Consulta' id='ConsultaResult'>
@@ -28,16 +28,14 @@
     </select>
 
 
-<!--    <select id="getPaciente" resultMap="PacienteResult">-->
-<!--        SELECT p.id, p.nombre, p.fecha_nacimiento, co.idCONSULTAS as co_id,-->
-<!--               co.fecha_y_hora as co_fecha_y_Hora,-->
-<!--               co.resumen as co_resumen, co.PACIENTES_id as co_PACIENTE_id, co.PACIENTES_tipo_id as co_PACIENTES_tipo_id-->
-<!--        FROM-->
-<!--            PACIENTES as p-->
-<!--                JOIN CONSULTAS as co ON p.id = co.PACIENTES_id-->
-<!--        WHERE (p.id = #{id})-->
+    <select id="getIniciativasPorPalabraClave" resultMap="IniciativasResult">
+        SELECT i.idIniciativa, i.estado, i.descripcion, i.fecha
+        FROM
+            INICIATIVAS as i
+                join palabrasclave as p on i.idIniciativa = p.iniciativas_idIniciativa
+        WHERE (p.palabra=#{Palabra});
 
-<!--    </select>-->
+    </select>
 
 
 <!--    <select id="getPacientesEnfermosMenores" resultMap="PacienteResult">-->
