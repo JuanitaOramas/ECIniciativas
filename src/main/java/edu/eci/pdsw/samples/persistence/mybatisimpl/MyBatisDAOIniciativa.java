@@ -17,12 +17,15 @@
 package edu.eci.pdsw.samples.persistence.mybatisimpl;
 
 import com.google.inject.Inject;
-import edu.eci.pdsw.samples.entities.Consulta;
+import edu.eci.pdsw.samples.entities.Area;
 import edu.eci.pdsw.samples.entities.Iniciativa;
+import edu.eci.pdsw.samples.entities.Usuario;
 import edu.eci.pdsw.samples.entities.estado;
 import edu.eci.pdsw.samples.persistence.DaoIniciativa;
 import edu.eci.pdsw.samples.persistence.PersistenceException;
 import edu.eci.pdsw.samples.persistence.mybatisimpl.mappers.IniciativaMapper;
+import edu.eci.pdsw.samples.persistence.mybatisimpl.mappers.UsuarioMapper;
+import edu.eci.pdsw.samples.persistence.mybatisimpl.mappers.AreaMapper;
 
 import java.util.List;
 
@@ -35,7 +38,11 @@ public class MyBatisDAOIniciativa implements DaoIniciativa {
 
     @Inject
     IniciativaMapper iniciativaMapper;
-    
+    @Inject
+    UsuarioMapper usuarioMapper;
+
+    @Inject
+    AreaMapper areaMapper;
 
 
     @Override
@@ -64,7 +71,34 @@ public class MyBatisDAOIniciativa implements DaoIniciativa {
         }
     }
 
+    @Override
+    public Usuario load(int idUsuario) throws PersistenceException {
+        try{
+            return usuarioMapper.getUsuario(idUsuario);
+        }
+        catch(Exception e){
+            throw new PersistenceException("Error al consultar los pacientes:"+e.getLocalizedMessage(), e);
+        }
+    }
+    @Override
+    public List<Area> loadAreas() throws PersistenceException {
+        try{
+            return areaMapper.getArea();
+        }
+        catch(Exception e){
+            throw new PersistenceException("Error al consultar los pacientes:"+e.getLocalizedMessage(), e);
+        }
+    }
 
+    @Override
+    public void saveIniciativas(String iniciativa, String palabraClave, String area) throws PersistenceException {
+        try{
+            iniciativaMapper.insertIniciativas(iniciativa, palabraClave, area);
+        }
+        catch(Exception e){
+            throw new PersistenceException("Error al consultar los pacientes:"+e.getLocalizedMessage(), e);
+        }
+    }
 
 
     @Override

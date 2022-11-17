@@ -17,8 +17,8 @@
 package edu.eci.pdsw.samples.managedbeans;
 
 import com.google.inject.Inject;
+import edu.eci.pdsw.samples.entities.Area;
 import edu.eci.pdsw.samples.entities.Iniciativa;
-import edu.eci.pdsw.samples.entities.Consulta;
 import edu.eci.pdsw.samples.entities.estado;
 import edu.eci.pdsw.samples.services.ExcepcionServiciosSuscripciones;
 import edu.eci.pdsw.samples.services.ServiciosIniciativas;
@@ -39,12 +39,14 @@ public class IniciativasBean extends BasePageBean {
     @Inject
     private ServiciosIniciativas serviciosIniciativas;
 
-    private Consulta consulta;
     private Iniciativa iniciativa;
+
 
     estado estado;
 
     List<Iniciativa> listaIniciativas;
+    List<Area> listaAreas;
+
 
     public void setTipoIdentificacion(estado estado) {
         this.estado = estado;
@@ -79,10 +81,24 @@ public class IniciativasBean extends BasePageBean {
     }
 
 
+    public List<Area> getArea() throws Exception {
+        try {
+            return serviciosIniciativas.consultarAreas();
+        } catch (ExcepcionServiciosSuscripciones ex) {
+            throw ex;
+        }
+
+    }
+
+    public void insertIniciativa(String iniciativa, String palabraClave, String area) throws Exception {
+        try {
+            serviciosIniciativas.insertIniciativas(iniciativa,palabraClave,area);
+        } catch (ExcepcionServiciosSuscripciones ex) {
+            throw ex;
+        }
+
+    }
 
 
-//    public estado[] getTiposIdentificacion() {
-//        return estado.values();
-//    }
     
 }

@@ -5,28 +5,78 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:o="http://omnifaces.org/ui"
       xmlns:p="http://primefaces.org/ui">
+
+
+
 <h:head>
-    <title></title>
+
+
+    <title>Registrar iniciativa</title>
+
+    <style>
+
+
+        body {
+            background: #F3F3F1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Georgia;
+        }
+
+        h1 {
+            font-family: Georgia;
+
+        }
+
+        .iniciativa {
+
+            background-color: white;
+            width:70%;
+            margin-top: 10%;
+            padding: 25px;
+            -webkit-box-shadow: 4px 4px 5px 3px rgba(204,204,204,1);
+            -moz-box-shadow: 4px 4px 5px 3px rgba(204,204,204,1);
+            box-shadow: 4px 4px 5px 3px rgba(204,204,204,1);
+
+        }
+
+        .btn {
+            font-family: Georgia;
+            border: none;
+            border-radius: 10px;
+            background-color: lightblue;
+            color: black;
+            margin-top: 15px;
+
+        }
+
+        .btn:hover {
+            background-color: #555555;
+            color: grey;
+        }
+
+    </style>
 </h:head>
 <h:body>
-    <h1>Registra Iniciativa</h1>
-    <h:form>
-<!--        <p:dataTable id="iniciativas" var="iniciativa"  >-->
-        <div class="formulario_iniciativa">
-            <h2>Iniciativa</h2>
-                <p:inputText id="iniciativa" binding="#{ini}" ></p:inputText>
-            <h2>Palabra Clave</h2>
-                <p:inputText id="palabra_clave" binding="#{pal_clave}" ></p:inputText>
-            <h2>Area proponente</h2>
-                <p:inputText id="area_proponente" binding="#{area}" ></p:inputText>
-            <!--            <p:column headerText="palabrasClave">-->
-            <!--                <h:outputText value="#{iniciativas.palabrasClave}" />-->
-            <!--            </p:column>-->
-<!--        </p:dataTable>-->
-        </div>
-        <p:commandButton  value="Consultar" ></p:commandButton>
+    <div class="iniciativa">
+        <h:form>
+            <h1>Registrar Iniciativa</h1>
+            <div class="formgrid grid">
+                <h3>Iniciativa</h3>
+                    <p:inputText id="iniciativa" binding="#{ini}" ></p:inputText>
+                <h3>Palabra Clave</h3>
+                    <p:inputText id="palabra_clave" binding="#{pal_clave}" ></p:inputText>
+                <h3>Area proponente</h3>
+                <p:selectOneMenu value="#{mb.area}" >
+                    <f:selectItems value="#{mb.area}" />
+                </p:selectOneMenu>
+            </div>
+            <p:commandButton  value="Publicar" class="btn" actionListener="#{mb.insertIniciativa(ini.value, pal_clave.value, 3)}"></p:commandButton>
+        </h:form>
+    </div>
 
-    </h:form>
+
 </h:body>
 </html>
 

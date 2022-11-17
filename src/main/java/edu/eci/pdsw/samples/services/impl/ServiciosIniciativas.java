@@ -6,7 +6,9 @@
 package edu.eci.pdsw.samples.services.impl;
 
 import com.google.inject.Inject;
+import edu.eci.pdsw.samples.entities.Area;
 import edu.eci.pdsw.samples.entities.Iniciativa;
+import edu.eci.pdsw.samples.entities.Usuario;
 import edu.eci.pdsw.samples.entities.estado;
 import edu.eci.pdsw.samples.persistence.DaoIniciativa;
 import edu.eci.pdsw.samples.persistence.PersistenceException;
@@ -35,9 +37,39 @@ public class ServiciosIniciativas implements edu.eci.pdsw.samples.services.Servi
         try {
             return daoPaciente.loadIniciativasPorPalabrasClave(palabraClave);
         } catch (PersistenceException ex) {
+            throw new ExcepcionServiciosSuscripciones("Error al realizar la consulta:" + ex.getLocalizedMessage(), ex);
+        }
+    }
+
+    @Override
+    public Usuario getUsuarioById(int id) throws ExcepcionServiciosSuscripciones {
+        try {
+            return daoPaciente.load(id);
+        } catch (PersistenceException ex) {
             throw new ExcepcionServiciosSuscripciones("Error al realizar la consulta:"+ex.getLocalizedMessage(), ex);
         }
     }
+
+    @Override
+    public List<Area> consultarAreas() throws ExcepcionServiciosSuscripciones {
+        try {
+            return daoPaciente.loadAreas();
+        } catch (PersistenceException ex) {
+            throw new ExcepcionServiciosSuscripciones("Error al realizar la consulta:"+ex.getLocalizedMessage(), ex);
+        }
+    }
+
+
+    @Override
+    public void insertIniciativas(String iniciativa, String palabraClave, String area ) throws ExcepcionServiciosSuscripciones {
+        try {
+            daoPaciente.saveIniciativas(iniciativa,palabraClave,area);
+        } catch (PersistenceException ex) {
+            throw new ExcepcionServiciosSuscripciones("Error al realizar la consulta:"+ex.getLocalizedMessage(), ex);
+        }
+    }
+
+
 
 
 

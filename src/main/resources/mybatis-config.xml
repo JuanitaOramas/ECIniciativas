@@ -11,8 +11,9 @@
     </properties>
 
     <typeAliases>
-        <typeAlias type='edu.eci.pdsw.samples.entities.Consulta' alias='Consulta'/>
+        <typeAlias type='edu.eci.pdsw.samples.entities.Usuario' alias='Usuario'/>
         <typeAlias type='edu.eci.pdsw.samples.entities.Iniciativa' alias='Iniciativa'/>
+        <typeAlias type='edu.eci.pdsw.samples.entities.Area' alias='Area'/>
     </typeAliases>
 
     <environments default="development">
@@ -29,7 +30,9 @@
     </environments>
 
     <mappers>
-        <mapper resource="mappers/PacienteMapper.xml"></mapper>
+        <mapper resource="mappers/IniciativaMapper.xml"></mapper>
+        <mapper resource="mappers/UsuarioMapper.xml"></mapper>
+        <mapper resource="mappers/AreaMapper.xml"></mapper>
 
     </mappers> 
         

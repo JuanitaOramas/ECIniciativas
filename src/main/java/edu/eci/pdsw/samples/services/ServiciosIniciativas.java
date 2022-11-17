@@ -3,7 +3,9 @@ package edu.eci.pdsw.samples.services;
 
 import java.util.List;
 
+import edu.eci.pdsw.samples.entities.Area;
 import edu.eci.pdsw.samples.entities.Iniciativa;
+import edu.eci.pdsw.samples.entities.Usuario;
 import edu.eci.pdsw.samples.entities.estado;
 
 /**
@@ -40,6 +42,11 @@ public interface ServiciosIniciativas {
      * @throws ExcepcionServiciosSuscripciones si se presenta otro problema en las capas inferiores.
      */
 //    public List<Iniciativa> consultarMenoresConEnfermedadContagiosa() throws ExcepcionServiciosSuscripciones;
-    
+     public Usuario getUsuarioById(int id ) throws ExcepcionServiciosSuscripciones;
+
+     public List<Area> consultarAreas( ) throws ExcepcionServiciosSuscripciones;
+
+     public void insertIniciativas(String iniciativa, String palabraClave, String area ) throws ExcepcionServiciosSuscripciones;
+
 
 }

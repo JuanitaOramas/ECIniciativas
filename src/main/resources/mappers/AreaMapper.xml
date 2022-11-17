@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="edu.eci.pdsw.samples.persistence.mybatisimpl.mappers.AreaMapper">
+
+    <resultMap type='Area' id='AreaResult'>
+        <id property='idArea' column='idArea'/>
+        <result property='nombreArea' column='nombreArea'/>
+    </resultMap>
+
+    <select id="getArea" resultMap="AreaResult">
+        SELECT a.idArea, a.nombreArea
+        FROM
+            AREAS as a
+    </select>
+
+
+
+</mapper>

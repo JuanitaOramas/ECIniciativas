@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="edu.eci.pdsw.samples.persistence.mybatisimpl.mappers.IniciativaMapper">
+
+    <resultMap type='Iniciativa' id='IniciativasResult'>
+        <id property='idIniciativa' column='idIniciativa'/>
+        <id property='estado' column='estado'/>
+        <result property='descripcion' column='descripcion'/>
+        <result property='fecha' column='fecha'/>
+    </resultMap>
+
+
+
+
+    <select id="getIniciativas" resultMap="IniciativasResult">
+        SELECT i.idIniciativa, i.estado, i.descripcion, i.fecha
+        FROM
+            INICIATIVAS as i
+    </select>
+
+
+    <select id="getIniciativasPorPalabraClave" resultMap="IniciativasResult">
+        SELECT i.idIniciativa, i.estado, i.descripcion, i.fecha
+        FROM
+            INICIATIVAS as i
+                join palabrasclave as p on i.idIniciativa = p.iniciativas_idIniciativa
+        WHERE (p.palabra=#{Palabra});
+
+    </select>
+
+    <insert id="insertIniciativas" >
+        INSERT INTO iniciativas (idIniciativa,estado, descripcion, fecha, usuarios_idUsuario, areas_idArea)
+        VALUES (24,"Nuevo",#{iniciativa},now(),1,1);
+
+    </insert>
+
+
+</mapper>

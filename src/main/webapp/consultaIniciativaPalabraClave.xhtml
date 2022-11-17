@@ -5,19 +5,45 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:o="http://omnifaces.org/ui"
       xmlns:p="http://primefaces.org/ui">
+
+
+
+
     <h:head>
         <title>Consulta por Palabra Clave</title>
-<!--        <style> </style>-->
+        <style>
+
+            body {
+                background: #F3F3F1;
+            }
+
+            .ui-datatable.borderless th,.ui-datatable.borderless td {
+                padding: 15px;
+                text-align: left;
+            }
+
+            .ui-datatable.borderless tbody,
+            .ui-datatable.borderless th,
+            .ui-datatable.borderless td {
+                border-style: none;
+                background-color: white;
+                color: coral;
+                border-collapse:collapse;
+                font-family: "Bell MT";
+            }
+
+
+        </style>
     </h:head>
     <h:body>
-        <h1>Consulta Paciente</h1>
+        <h1>Consulta por Palabra Clave</h1>
         <h:form>
             <p:inputText id="identificacion_paciente" binding="#{input}" ></p:inputText>
 
 
             <p:commandButton  action="#{mb.getIniciativasPorPalabraClave(input.value)}" value="Consultar" update="iniciativas"></p:commandButton>
 
-        <p:dataTable id="iniciativas" var="iniciativa" value="#{mb.getIniciativasPorPalabraClaveList()}" lazy="false" paginator="true" paginatorposition="bottom" rows="10" dynamic="true" >
+        <p:dataTable id="iniciativas" var="iniciativa" value="#{mb.getIniciativasPorPalabraClaveList()}" lazy="false" paginator="true" paginatorposition="bottom" rows="10" dynamic="true" styleClass="borderless">
             <p:column headerText="Id">
                 <h:outputText value="#{iniciativa.idIniciativa}" />
             </p:column>
