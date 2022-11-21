@@ -21,7 +21,7 @@ public class Area {
 
     @Override
     public String toString() {
-        StringBuffer repArea = new StringBuffer(idArea);
+        StringBuffer repArea = new StringBuffer(idArea + "");
         return repArea.toString();
     }
 

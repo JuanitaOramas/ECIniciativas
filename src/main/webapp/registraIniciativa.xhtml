@@ -68,11 +68,12 @@
                 <h3>Palabra Clave</h3>
                     <p:inputText id="palabra_clave" binding="#{pal_clave}" ></p:inputText>
                 <h3>Area proponente</h3>
-                <p:selectOneMenu value="#{mb.area}" >
+                <p:selectOneMenu value="#{mb.area}" binding="#{area_val}" >
                     <f:selectItems value="#{mb.area}" />
                 </p:selectOneMenu>
             </div>
-            <p:commandButton  value="Publicar" class="btn" actionListener="#{mb.insertIniciativa(ini.value, pal_clave.value, 3)}"></p:commandButton>
+            <p:commandButton  value="Publicar" class="btn" action="#{mb.insertIniciativa(ini.value, pal_clave.value, area.value)}"></p:commandButton>
+<!--            <p:commandButton  value="Publicar" class="btn" action="#{mb.insertIniciativa(hola, hola, 2)}"></p:commandButton>-->
         </h:form>
     </div>
 

@@ -93,6 +93,9 @@ public class MyBatisDAOIniciativa implements DaoIniciativa {
     @Override
     public void saveIniciativas(String iniciativa, String palabraClave, String area) throws PersistenceException {
         try{
+            System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+            System.out.println(iniciativa + "laaaaaaavainafea: " + palabraClave + " "  + area );
+            System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
             iniciativaMapper.insertIniciativas(iniciativa, palabraClave, area);
         }
         catch(Exception e){

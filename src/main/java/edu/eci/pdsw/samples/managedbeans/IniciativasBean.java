@@ -27,10 +27,7 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
-/**
- *
- * @author hcadavid
- */
+
 @ManagedBean(name = "mb")
 
 @SessionScoped
@@ -92,8 +89,12 @@ public class IniciativasBean extends BasePageBean {
 
     public void insertIniciativa(String iniciativa, String palabraClave, String area) throws Exception {
         try {
+            System.out.println(">>>>>>>>>>>>>>>>>>>>>>BEANNNN>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+            System.out.println(iniciativa + "laaaaaaavainafea: " + palabraClave + " "  + area );
+            System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
             serviciosIniciativas.insertIniciativas(iniciativa,palabraClave,area);
         } catch (ExcepcionServiciosSuscripciones ex) {
+            System.out.println(">>>>>>>>>>>>>>>>>>>>>>BEANNNN>>CATH>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
             throw ex;
         }
 

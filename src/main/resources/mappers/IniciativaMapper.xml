@@ -32,8 +32,8 @@
     </select>
 
     <insert id="insertIniciativas" >
-        INSERT INTO iniciativas (idIniciativa,estado, descripcion, fecha, usuarios_idUsuario, areas_idArea)
-        VALUES (24,"Nuevo",#{iniciativa},now(),1,1);
+        INSERT INTO iniciativas (estado, descripcion, fecha, usuarios_idUsuario, areas_idArea)
+        VALUES ("Otro Nuevo",#{iniciativa},now(),3,#{area});
 
     </insert>
 
