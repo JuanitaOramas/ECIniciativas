@@ -40,7 +40,6 @@ public class MyBatisDAOIniciativa implements DaoIniciativa {
     IniciativaMapper iniciativaMapper;
     @Inject
     UsuarioMapper usuarioMapper;
-
     @Inject
     AreaMapper areaMapper;
 
@@ -114,9 +113,15 @@ public class MyBatisDAOIniciativa implements DaoIniciativa {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-//    @Override
-//    public void addConsulta(int id, estado tipoId, Consulta c) throws PersistenceException {
-//    }
-
+    @Override
+    public Usuario load(int id, String pass) throws PersistenceException {
+        //To change body of generated methods, choose Tools | Templates.
+        try{
+            return iniciativaMapper.consultarUsuarioPorCredentials(id, pass);
+        }
+        catch(Exception e){
+            throw new PersistenceException("Error al consultar los pacientes:"+e.getLocalizedMessage(), e);
+        }
+    }
 
 }

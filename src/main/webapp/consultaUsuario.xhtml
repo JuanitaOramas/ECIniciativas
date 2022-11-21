@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:o="http://omnifaces.org/ui"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Usuarios</title>
+</h:head>
+<h:body>
+    <h1>Consulta de Usuarios</h1>
+
+    <h:form>
+
+        <!--Por favor no cambiar el 'id':-->
+        <h3>Usuario</h3>
+        <p:inputText id="identificacion_usuario" binding="#{inputU}"></p:inputText>
+        <h3>Contraseña</h3>
+        <p:inputText id="identificacion_pass" binding="#{inputpass}"></p:inputText>
+        <!--Por favor no cambiar el 'value':-->
+        <p:commandButton action="#{ub.getData(inputU.value,inputpass.value)}" update="iniciativas" value="Consultar"></p:commandButton>
+
+            <p:dataTable id="iniciativas" var="iniciativa" value="#{ub.getSelectedUsuario().getIniciativas()}">
+                <p:column headerText="Nombre">
+                    <h:outputText value="#{ub.getSelectedUsuario().getPerfil()}" />
+                </p:column>
+                <p:column headerText="Informacion">
+                    <h:outputText value="#{ub.getSelectedUsuario().getInformacion()}" />
+                </p:column>
+                <p:column headerText="Codigo de la Iniciativa">
+                    <h:outputText value="#{iniciativa.getIdIniciativa()}" />
+                </p:column>
+                <p:column headerText="Estado">
+                    <h:outputText value="#{iniciativa.getEstado()}" />
+                </p:column>
+                <p:column headerText="Descripcion">
+                    <h:outputText value="#{iniciativa.getDescripcion()}" />
+                </p:column>
+                <p:column headerText="Fecha">
+                    <h:outputText value="#{iniciativa.getFecha()}" />
+                </p:column>
+            </p:dataTable>
+    </h:form>
+</h:body>
+</html>

@@ -33,7 +33,6 @@
         <mapper resource="mappers/IniciativaMapper.xml"></mapper>
         <mapper resource="mappers/UsuarioMapper.xml"></mapper>
         <mapper resource="mappers/AreaMapper.xml"></mapper>
-
     </mappers> 
         
         

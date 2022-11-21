@@ -19,6 +19,7 @@ package edu.eci.pdsw.samples.persistence.mybatisimpl.mappers;
 import java.util.List;
 
 import edu.eci.pdsw.samples.entities.Iniciativa;
+import edu.eci.pdsw.samples.entities.Usuario;
 import edu.eci.pdsw.samples.entities.estado;
 import org.apache.ibatis.annotations.Param;
 
@@ -30,6 +31,9 @@ public interface IniciativaMapper {
     List<Iniciativa> getIniciativasPorPalabraClave(@Param("Palabra")  String Palabra);
 
     void insertIniciativas(@Param("iniciativa") String iniciativa,@Param("palabraClave") String palabraClave,@Param("area") String area);
+
+    //miralo
+    Usuario consultarUsuarioPorCredentials(@Param("id") int id, @Param("pass") String pass);
 
     //Iniciativa getPaciente(@Param("id") int id, @Param("tipoId") estado estado);
 
