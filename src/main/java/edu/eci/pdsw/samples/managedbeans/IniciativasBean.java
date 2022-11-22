@@ -1,27 +1,14 @@
-/*
- * Copyright (C) 2016 hcadavid
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
+
 package edu.eci.pdsw.samples.managedbeans;
 
 import com.google.inject.Inject;
 import edu.eci.pdsw.samples.entities.Area;
 import edu.eci.pdsw.samples.entities.Iniciativa;
+import edu.eci.pdsw.samples.entities.Usuario;
 import edu.eci.pdsw.samples.entities.estado;
 import edu.eci.pdsw.samples.services.ExcepcionServiciosSuscripciones;
 import edu.eci.pdsw.samples.services.ServiciosIniciativas;
+import edu.eci.pdsw.samples.services.ServiciosIniciativasFactory;
 
 import java.util.List;
 import javax.faces.bean.ManagedBean;
@@ -90,8 +77,8 @@ public class IniciativasBean extends BasePageBean {
     public void insertIniciativa(String iniciativa, String palabraClave, String area) throws Exception {
         try {
             System.out.println(">>>>>>>>>>>>>>>>>>>>>>BEANNNN>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-            System.out.println(iniciativa + "laaaaaaavainafea: " + palabraClave + " "  + area );
-            System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+            System.out.println(iniciativa + " " + palabraClave + " "  + area );
+
             serviciosIniciativas.insertIniciativas(iniciativa,palabraClave,area);
         } catch (ExcepcionServiciosSuscripciones ex) {
             System.out.println(">>>>>>>>>>>>>>>>>>>>>>BEANNNN>>CATH>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
@@ -100,6 +87,40 @@ public class IniciativasBean extends BasePageBean {
 
     }
 
+
+    Usuario selectedUsuario;
+
+    public Usuario getSelectedUsuario() {
+        return selectedUsuario;
+    }
+
+    public void setSelectedUsuario(Usuario selectedUsuario) {
+        this.selectedUsuario = selectedUsuario;
+    }
+
+    public void verConsultasPorUsuario(int id, String pass){
+        try {
+            System.out.println(">>>>>>>>>>>>>>>>>>>>>>BEANNNN>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+            selectedUsuario = ServiciosIniciativasFactory.getInstance().getForumsServices().consultarUsuarioPorCredentials(id, pass);
+        } catch (Exception e) {
+            System.out.println(">>>>>>>>>>>>>>>>>>>>>>BEANNNN>>CATH>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+            e.printStackTrace();
+        }
+    }
+
+
+    public void verAreaTest(String emailUsuario, String passwordUsuario) throws Exception {
+        try {
+            System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+            System.out.println( "EMAIL: " + emailUsuario);
+            System.out.println( "PASSWORD: " + passwordUsuario);
+            System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>aaaaaeeeeiioouu>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+        } catch (Exception ex) {
+            System.out.println(">>>>>>>>>>>>>>>>>>>>>CATCH>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+            throw ex;
+        }
+
+    }
 
 
     

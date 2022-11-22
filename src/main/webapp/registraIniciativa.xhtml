@@ -64,7 +64,7 @@
             <h1>Registrar Iniciativa</h1>
             <div class="formgrid grid">
                 <h3>Iniciativa</h3>
-                    <p:inputText id="iniciativa" binding="#{ini}" ></p:inputText>
+                    <p:inputText id="iniciativa" binding="#{iniciativa_val}" ></p:inputText>
                 <h3>Palabra Clave</h3>
                     <p:inputText id="palabra_clave" binding="#{pal_clave}" ></p:inputText>
                 <h3>Area proponente</h3>
@@ -72,8 +72,8 @@
                     <f:selectItems value="#{mb.area}" />
                 </p:selectOneMenu>
             </div>
-            <p:commandButton  value="Publicar" class="btn" action="#{mb.insertIniciativa(ini.value, pal_clave.value, area.value)}"></p:commandButton>
-<!--            <p:commandButton  value="Publicar" class="btn" action="#{mb.insertIniciativa(hola, hola, 2)}"></p:commandButton>-->
+            <p:commandButton  value="Publicar" class="btn" action="#{mb.insertIniciativa(iniciativa_val.value, pal_clave.value, area_val.value)}"></p:commandButton>
+
         </h:form>
     </div>
 

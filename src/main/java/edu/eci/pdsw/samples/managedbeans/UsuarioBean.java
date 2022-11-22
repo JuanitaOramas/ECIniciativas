@@ -22,11 +22,15 @@ public class UsuarioBean extends BasePageBean {
         this.selectedUsuario = selectedUsuario;
     }
 
-    public void getData(int id, String pass){
+    public void verDatas(int id, String pass){
         try {
+            System.out.println(">>>>>>>>>>>>>>>>>>>>>>BEANNNN>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
             selectedUsuario = ServiciosIniciativasFactory.getInstance().getForumsServices().consultarUsuarioPorCredentials(id, pass);
         } catch (Exception e) {
+            System.out.println(">>>>>>>>>>>>>>>>>>>>>>BEANNNN>>CATH>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
             e.printStackTrace();
         }
     }
+
+
 }
