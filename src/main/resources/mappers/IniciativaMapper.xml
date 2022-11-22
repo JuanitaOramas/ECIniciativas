@@ -38,4 +38,27 @@
     </insert>
 
 
+
+    <resultMap type='Usuario' id='UsuarioIniciativaResult'>
+        <id property='idUsuario' column='idUsuario'/>
+        <id property='perfil' column='perfil'/>
+        <result property='informacion' column='informacion'/>
+        <collection property='iniciativa' ofType='Iniciativa' resultMap="IniciativaResult"/>
+    </resultMap>
+
+    <select id="consultarUsuarioPorCredentials" resultMap="UsuarioIniciativaResult">
+        SELECT
+            p.idUsuario AS idUsuario,
+            p.perfil AS perfil,
+            p.informacion AS informacion,
+            c.idIniciativa AS idIniciativa,
+            c.descripcion AS descripcion,
+            c.fecha AS fecha
+        FROM
+            USUARIOS AS p JOIN INICIATIVAS as c ON
+                p.idUsuario = c.usuarios_idUsuario
+        WHERE
+            p.idUsuario = #{id} AND p.contrasena = #{pass}
+    </select>
+
 </mapper>

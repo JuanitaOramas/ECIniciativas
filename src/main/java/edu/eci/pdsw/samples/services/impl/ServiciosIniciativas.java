@@ -73,8 +73,8 @@ public class ServiciosIniciativas implements edu.eci.pdsw.samples.services.Servi
     @Override
     public Usuario consultarUsuarioPorCredentials(int id, String pass) throws ExcepcionServiciosSuscripciones {
         try {
-            return daoPaciente.load(id, pass);
-        } catch (PersistenceException ex) {
+            return daoPaciente.loadConsultaUsuario(id, pass);
+        } catch (Exception ex) {
             throw new ExcepcionServiciosSuscripciones("Error al realizar la consulta:"+ex.getLocalizedMessage(), ex);
         }
     }

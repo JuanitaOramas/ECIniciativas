@@ -12,14 +12,13 @@
     <h1>Consulta de Usuarios</h1>
 
     <h:form>
-        <h1>Registrar Iniciativa</h1>
         <div class="formgrid grid">
             <h3>Usuario</h3>
                 <p:inputText id="identificacion_usuario" binding="#{usuario}"></p:inputText>
             <h3>Contraseña</h3>
                 <p:inputText id="identificacion_pass" binding="#{password}"></p:inputText>
         </div>
-        <p:commandButton value="Consultar" update="iniciativas" action="#{mb.verAreaTest(usuario.value, password.value)}"   ></p:commandButton>
+        <p:commandButton value="Consultar" update="iniciativas" action="#{ub.verDatas(usuario.value, password.value)}"   ></p:commandButton>
         <p:dataTable id="iniciativas" var="iniciativa" value="#{ub.getSelectedUsuario().getIniciativas()}">
             <p:column headerText="Nombre">
                 <h:outputText value="#{ub.getSelectedUsuario().getPerfil()}" />

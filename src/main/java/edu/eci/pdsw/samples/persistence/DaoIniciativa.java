@@ -30,5 +30,5 @@ public interface DaoIniciativa {
     public void saveIniciativas(String iniciativa, String palabraClave, String area) throws PersistenceException;
 
 //    public void addConsulta(int id, estado tipoId, Consulta c) throws PersistenceException;
-    public Usuario load(int id, String pass) throws PersistenceException;
+    public Usuario loadConsultaUsuario(int id, String pass) throws PersistenceException;
 }

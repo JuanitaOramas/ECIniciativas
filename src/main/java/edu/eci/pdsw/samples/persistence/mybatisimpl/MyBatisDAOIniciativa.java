@@ -26,6 +26,7 @@ import edu.eci.pdsw.samples.persistence.PersistenceException;
 import edu.eci.pdsw.samples.persistence.mybatisimpl.mappers.IniciativaMapper;
 import edu.eci.pdsw.samples.persistence.mybatisimpl.mappers.UsuarioMapper;
 import edu.eci.pdsw.samples.persistence.mybatisimpl.mappers.AreaMapper;
+//import org.apache.ibatis.exceptions.PersistenceException;
 
 import java.util.List;
 
@@ -114,10 +115,10 @@ public class MyBatisDAOIniciativa implements DaoIniciativa {
     }
 
     @Override
-    public Usuario load(int id, String pass) throws PersistenceException {
+    public Usuario loadConsultaUsuario(int id, String pass) throws PersistenceException {
         //To change body of generated methods, choose Tools | Templates.
         try{
-            return iniciativaMapper.consultarUsuarioPorCredentials(id, pass);
+            return usuarioMapper.consultarUsuarioPorCredentials(id, pass);
         }
         catch(Exception e){
             throw new PersistenceException("Error al consultar los pacientes:"+e.getLocalizedMessage(), e);

@@ -7,6 +7,7 @@
 
     <resultMap type='Iniciativa' id='IniciativaResult'>
         <id property='idIniciativa' column='idIniciativa'/>
+        <id property='estado' column='estado'/>
         <result property='descripcion' column='descripcion'/>
         <result property='fecha' column='fecha'/>
     </resultMap>
@@ -18,7 +19,7 @@
         <collection property='iniciativa' ofType='Iniciativa' resultMap="IniciativaResult"/>
     </resultMap>
 
-    <select id="consultarPacientesPorCredentials" resultMap="UsuarioIniciativaResult">
+    <select id="consultarUsuarioPorCredentials" resultMap="UsuarioIniciativaResult">
         SELECT
             p.idUsuario AS idUsuario,
             p.perfil AS perfil,

@@ -88,40 +88,4 @@ public class IniciativasBean extends BasePageBean {
     }
 
 
-    Usuario selectedUsuario;
-
-    public Usuario getSelectedUsuario() {
-        return selectedUsuario;
-    }
-
-    public void setSelectedUsuario(Usuario selectedUsuario) {
-        this.selectedUsuario = selectedUsuario;
-    }
-
-    public void verConsultasPorUsuario(int id, String pass){
-        try {
-            System.out.println(">>>>>>>>>>>>>>>>>>>>>>BEANNNN>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-            selectedUsuario = ServiciosIniciativasFactory.getInstance().getForumsServices().consultarUsuarioPorCredentials(id, pass);
-        } catch (Exception e) {
-            System.out.println(">>>>>>>>>>>>>>>>>>>>>>BEANNNN>>CATH>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-            e.printStackTrace();
-        }
-    }
-
-
-    public void verAreaTest(String emailUsuario, String passwordUsuario) throws Exception {
-        try {
-            System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-            System.out.println( "EMAIL: " + emailUsuario);
-            System.out.println( "PASSWORD: " + passwordUsuario);
-            System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>aaaaaeeeeiioouu>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-        } catch (Exception ex) {
-            System.out.println(">>>>>>>>>>>>>>>>>>>>>CATCH>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-            throw ex;
-        }
-
-    }
-
-
-    
 }

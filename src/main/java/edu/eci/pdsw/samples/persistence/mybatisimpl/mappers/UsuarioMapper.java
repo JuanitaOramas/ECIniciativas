@@ -27,4 +27,5 @@ import java.util.List;
 public interface UsuarioMapper {
 
     Usuario getUsuario(@Param("idUsuario") int idUsuario);
+    Usuario consultarUsuarioPorCredentials(@Param("id") int id, @Param("pass") String pass);
 }

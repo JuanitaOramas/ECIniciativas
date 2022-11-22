@@ -33,7 +33,6 @@ public interface IniciativaMapper {
     void insertIniciativas(@Param("iniciativa") String iniciativa,@Param("palabraClave") String palabraClave,@Param("area") String area);
 
     //miralo
-    Usuario consultarUsuarioPorCredentials(@Param("id") int id, @Param("pass") String pass);
 
     //Iniciativa getPaciente(@Param("id") int id, @Param("tipoId") estado estado);
 
