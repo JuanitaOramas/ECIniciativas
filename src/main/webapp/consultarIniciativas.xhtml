@@ -30,8 +30,15 @@
     </style>
 </h:head>
 <h:body>
-    <h1>Consulta Paciente</h1>
     <h:form>
+        <ul>
+            <li><h:commandLink value="Consultar iniciativas" action="consultarIniciativas" /></li>
+            <li><h:commandLink value="Agrupar iniciativas" action="consultaAgruparIniciativas" /></li>
+            <li><h:commandLink value="Consultar iniciativas por palabra clave" action="consultaIniciativaPalabraClave" /></li>
+            <li><h:commandLink value="Consultar iniciativas por usuario" action="consultaUsuario" /></li>
+        </ul>
+
+        <h1>Consulta Paciente</h1>
 
         <p:dataTable id="iniciativas" var="iniciativas" value="#{mb.getIniciativas()}" paginator="true" paginatorposition="bottom" rows="3" dynamic="true"  >
             <p:column headerText="Id">
