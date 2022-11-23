@@ -33,6 +33,9 @@ public interface ServiciosIniciativas {
     public List<Iniciativa>  consultarIniciativasPorPalabraClave(String palabraClave) throws ExcepcionServiciosSuscripciones;
 
 
+    public List<Iniciativa>  consultarIniciativasPorEstado(String palabraClave) throws ExcepcionServiciosSuscripciones;
+
+
 
     /**
      * Consulta los pacientes menores de edad que han tenido enfermedades contagiosas

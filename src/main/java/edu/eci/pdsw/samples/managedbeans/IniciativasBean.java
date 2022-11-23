@@ -64,6 +64,21 @@ public class IniciativasBean extends BasePageBean {
         return listaIniciativas;
     }
 
+    public List<Iniciativa> getIniciativasPorEstadoList(){
+        return listaIniciativas;
+    }
+
+
+    public List<Iniciativa> getIniciativasPorEstado(String estado) throws Exception{
+        try {
+            listaIniciativas = serviciosIniciativas.consultarIniciativasPorEstado(estado);
+            return serviciosIniciativas.consultarIniciativasPorEstado(estado);
+        } catch (ExcepcionServiciosSuscripciones ex) {
+
+            throw ex;
+        }
+    }
+
 
     public List<Area> getArea() throws Exception {
         try {
@@ -86,6 +101,7 @@ public class IniciativasBean extends BasePageBean {
         }
 
     }
+
 
 
 }

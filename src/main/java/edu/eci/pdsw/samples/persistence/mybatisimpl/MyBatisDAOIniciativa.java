@@ -62,6 +62,22 @@ public class MyBatisDAOIniciativa implements DaoIniciativa {
     }
 
     @Override
+    public List<Iniciativa> loadIniciativasPorEstado(String estado) throws PersistenceException {
+        try{
+            System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+            List<Iniciativa> ini = iniciativaMapper.getIniciativasPorEstado(estado);
+            for (Iniciativa i: ini) {
+                System.out.println("ESTO ES: " + ini);
+            }
+            System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+            return iniciativaMapper.getIniciativasPorEstado(estado);
+        }
+        catch(Exception e){
+            throw new PersistenceException("Error al consultar los pacientes:"+e.getLocalizedMessage(), e);
+        }
+    }
+
+    @Override
     public List<Iniciativa> loadAll() throws PersistenceException {
         try{
             return iniciativaMapper.getIniciativas();

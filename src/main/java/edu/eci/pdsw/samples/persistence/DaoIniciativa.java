@@ -15,6 +15,8 @@ public interface DaoIniciativa {
 
     public List<Iniciativa> loadIniciativasPorPalabrasClave(String palabraClave) throws PersistenceException;
 
+    public List<Iniciativa> loadIniciativasPorEstado(String estado) throws PersistenceException;
+
     public List<Iniciativa> loadAll() throws PersistenceException;
 
 

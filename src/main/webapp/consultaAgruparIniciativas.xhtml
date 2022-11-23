@@ -5,8 +5,12 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:o="http://omnifaces.org/ui"
       xmlns:p="http://primefaces.org/ui">
+
+
+
+
 <h:head>
-    <title>Consulta de Iniciativas</title>
+    <title>Consulta por Estado</title>
     <style>
 
         body {
@@ -29,25 +33,33 @@
         }
     </style>
 </h:head>
-<h:body>
-    <h1>Consulta Paciente</h1>
-    <h:form>
 
-        <p:dataTable id="iniciativas" var="iniciativas" value="#{mb.getIniciativas()}" paginator="true" paginatorposition="bottom" rows="3" dynamic="true"  >
+<h:body>
+    <h1>Consultar Iniciativas por Estado</h1>
+    <h:form>
+        <div>
+        <h:selectOneMenu  value="En espera de revisión" binding="#{estado}" >
+            <f:selectItem itemValue="Revision" itemLabel="Revision" />
+                <f:selectItem itemValue="Aprobado" itemLabel="Aprobado" />
+            <f:selectItem itemValue="Rechazado" itemLabel="Rechazado" />
+            <f:selectItem itemValue="En espera de revisión" itemLabel="En espera de revisión" />
+        </h:selectOneMenu >
+        </div>
+
+        <p:commandButton  action="#{mb.getIniciativasPorEstado(estado.value)}" value="Consultar" update="iniciativas"></p:commandButton>
+
+        <p:dataTable id="iniciativas" var="iniciativa" value="#{mb.getIniciativasPorPalabraClaveList()}" lazy="false" paginator="true" paginatorposition="bottom" rows="10" dynamic="true" styleClass="borderless">
             <p:column headerText="Id">
-                <h:outputText value="#{iniciativas.idIniciativa}" />
+                <h:outputText value="#{iniciativa.idIniciativa}" />
             </p:column>
             <p:column headerText="estado">
-                <h:outputText value="#{iniciativas.estado}" />
+                <h:outputText value="#{iniciativa.estado}" />
             </p:column>
             <p:column headerText="descripción">
-                <h:outputText value="#{iniciativas.descripcion}" />
+                <h:outputText value="#{iniciativa.descripcion}" />
             </p:column>
-<!--            <p:column headerText="palabrasClave">-->
-<!--                <h:outputText value="#{iniciativas.palabrasClave}" />-->
-<!--            </p:column>-->
             <p:column headerText="fecha">
-                <h:outputText value="#{iniciativas.fecha}" />
+                <h:outputText value="#{iniciativa.fecha}" />
             </p:column>
         </p:dataTable>
     </h:form>

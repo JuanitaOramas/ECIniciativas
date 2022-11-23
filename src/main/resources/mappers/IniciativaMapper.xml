@@ -31,6 +31,14 @@
 
     </select>
 
+    <select id="getIniciativasPorEstado" resultMap="IniciativasResult">
+        SELECT i.idIniciativa, i.estado, i.descripcion, i.fecha
+        FROM
+            INICIATIVAS as i
+        WHERE (i.estado =#{estado});
+
+    </select>
+
     <insert id="insertIniciativas" >
         INSERT INTO iniciativas (estado, descripcion, fecha, usuarios_idUsuario, areas_idArea)
         VALUES ("Otro Nuevo","defecto",now(),3,3);

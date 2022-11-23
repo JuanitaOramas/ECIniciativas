@@ -30,6 +30,8 @@ public interface IniciativaMapper {
 
     List<Iniciativa> getIniciativasPorPalabraClave(@Param("Palabra")  String Palabra);
 
+    List<Iniciativa> getIniciativasPorEstado(@Param("estado")  String estado);
+
     void insertIniciativas(@Param("iniciativa") String iniciativa,@Param("palabraClave") String palabraClave,@Param("area") String area);
 
     //miralo
