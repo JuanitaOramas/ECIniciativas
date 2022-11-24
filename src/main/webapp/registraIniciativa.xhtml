@@ -59,8 +59,20 @@
     </style>
 </h:head>
 <h:body>
+
+    <f:metadata>
+        <f:viewParam name="id" value="#{mb.id}">
+        </f:viewParam>
+    </f:metadata>
+
+
     <div class="iniciativa">
         <h:form>
+
+
+
+            <h:outputText value="#{mb.id}" />
+
             <h1>Registrar Iniciativa</h1>
             <div class="formgrid grid">
                 <h3>Iniciativa</h3>

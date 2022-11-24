@@ -5,7 +5,7 @@ import com.google.inject.Inject;
 import edu.eci.pdsw.samples.entities.Area;
 import edu.eci.pdsw.samples.entities.Iniciativa;
 import edu.eci.pdsw.samples.entities.Usuario;
-import edu.eci.pdsw.samples.entities.estado;
+//import edu.eci.pdsw.samples.entities.estado;
 import edu.eci.pdsw.samples.services.ExcepcionServiciosSuscripciones;
 import edu.eci.pdsw.samples.services.ServiciosIniciativas;
 import edu.eci.pdsw.samples.services.ServiciosIniciativasFactory;
@@ -26,19 +26,19 @@ public class IniciativasBean extends BasePageBean {
     private Iniciativa iniciativa;
 
 
-    estado estado;
+//    estado estado;
 
     List<Iniciativa> listaIniciativas;
     List<Area> listaAreas;
 
 
-    public void setTipoIdentificacion(estado estado) {
-        this.estado = estado;
-    }
-
-    public estado getTipoIdentificacion() {
-        return estado;
-    }
+//    public void setTipoIdentificacion(estado estado) {
+//        this.estado = estado;
+//    }
+//
+//    public estado getTipoIdentificacion() {
+//        return estado;
+//    }
 
 
     public List<Iniciativa> getIniciativas() throws Exception{
@@ -102,6 +102,14 @@ public class IniciativasBean extends BasePageBean {
 
     }
 
+
+    private int id=0;
+    public void setId(int id) {
+        this.id = id;
+    }
+    public int getId() {
+        return this.id;
+    }
 
 
 }

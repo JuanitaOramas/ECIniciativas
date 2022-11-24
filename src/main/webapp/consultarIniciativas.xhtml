@@ -30,19 +30,32 @@
     </style>
 </h:head>
 <h:body>
-    <h:form>
+    <script>
+        function exportChart() {
+            //export image
+            $('#output').empty().append(PF('chart').exportAsImage());
+
+            //show the dialog
+            PF('dlg').show();
+        }
+    </script>
+
+    <h:form id="formIniciativas">
         <ul>
             <li><h:commandLink value="Consultar iniciativas" action="consultarIniciativas" /></li>
             <li><h:commandLink value="Agrupar iniciativas" action="consultaAgruparIniciativas" /></li>
             <li><h:commandLink value="Consultar iniciativas por palabra clave" action="consultaIniciativaPalabraClave" /></li>
             <li><h:commandLink value="Consultar iniciativas por usuario" action="consultaUsuario" /></li>
+            <li><h:commandLink value="Registrar iniciativa" action="registraIniciativa" /></li>
         </ul>
 
-        <h1>Consulta Paciente</h1>
+        <h1>Consulta Iniciativas</h1>
 
-        <p:dataTable id="iniciativas" var="iniciativas" value="#{mb.getIniciativas()}" paginator="true" paginatorposition="bottom" rows="3" dynamic="true"  >
+        <p:dataTable id="iniciativas" var="iniciativas" value="#{mb.getIniciativas()}" paginator="true" paginatorposition="bottom" rows="9" dynamic="true"  >
             <p:column headerText="Id">
-                <h:outputText value="#{iniciativas.idIniciativa}" />
+                <h:link value="#{iniciativas.idIniciativa}" outcome="registraIniciativa">
+                    <f:param name="id" value="#{iniciativas.idIniciativa}" />
+                </h:link>
             </p:column>
             <p:column headerText="estado">
                 <h:outputText value="#{iniciativas.estado}" />
@@ -57,7 +70,25 @@
                 <h:outputText value="#{iniciativas.fecha}" />
             </p:column>
         </p:dataTable>
+        <p:chart type="bar" model="#{statistics.viviendas}" style="height:300px" widgetVar="chart" />
+
+        <p:commandButton value="Exportar como PDF" ajax="false" >
+            <p:dataExporter type="pdf" target="iniciativas" fileName="DatosIniciativas"/>
+        </p:commandButton>
+        <p:commandButton type="button" value="Export Image ↓ "  onclick="exportChart()"/>
+
     </h:form>
+
+    <p:dialog widgetVar="dlg" showEffect="fade" modal="true" header="Chart as an Image" resizable="false">
+        <p:outputPanel id="output" layout="block" style="width:500px;height:300px"/>
+    </p:dialog>
+
+<!--    <h:form id = "RecolectInfo">-->
+<!--        -->
+<!--    </h:form>-->
+
+
+
 </h:body>
 </html>
 
