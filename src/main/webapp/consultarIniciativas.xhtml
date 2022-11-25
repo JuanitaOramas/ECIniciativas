@@ -26,7 +26,26 @@
             color: coral;
             border-collapse:collapse;
             font-family: "Bell MT";
+
         }
+
+        .nav {
+            Background-color:white;
+            padding: 30px 25px 10px 10px;
+            display:flex;
+        }
+
+        .nav li {
+            margin: 0 15px;
+        }
+
+        .nav > li {
+            float: left;
+            display:block;
+        }
+
+
+
     </style>
 </h:head>
 <h:body>
@@ -41,19 +60,26 @@
     </script>
 
     <h:form id="formIniciativas">
-        <ul>
-            <li><h:commandLink value="Consultar iniciativas" action="consultarIniciativas" /></li>
-            <li><h:commandLink value="Agrupar iniciativas" action="consultaAgruparIniciativas" /></li>
-            <li><h:commandLink value="Consultar iniciativas por palabra clave" action="consultaIniciativaPalabraClave" /></li>
-            <li><h:commandLink value="Consultar iniciativas por usuario" action="consultaUsuario" /></li>
-            <li><h:commandLink value="Registrar iniciativa" action="registraIniciativa" /></li>
-        </ul>
-
+        <div class = "nav-bar">
+            <ul class = "nav">
+                <li> <a href="">Inicio</a></li>
+                <li> <a href="">Consultar</a>
+                    <ul class = "nav-sub">
+                        <li><h:commandLink value="Consultar iniciativas" action="consultarIniciativas" /></li>
+                        <li><h:commandLink value="Consultar iniciativas Agrupadas " action="consultaAgruparIniciativas" /></li>
+                        <li><h:commandLink value="Consultar iniciativas por palabra clave" action="consultaIniciativaPalabraClave" /></li>
+                        <li><h:commandLink value="Consultar iniciativas por usuario" action="consultaUsuario" /></li>
+                    </ul>
+                </li>
+                <li><h:commandLink value="Registrar iniciativa" action="registraIniciativa" /></li>
+            </ul>
+        </div>
+        <h1>Bienvenido!</h1>
         <h1>Consulta Iniciativas</h1>
 
         <p:dataTable id="iniciativas" var="iniciativas" value="#{mb.getIniciativas()}" paginator="true" paginatorposition="bottom" rows="9" dynamic="true"  >
             <p:column headerText="Id">
-                <h:link value="#{iniciativas.idIniciativa}" outcome="registraIniciativa">
+                <h:link value="#{iniciativas.idIniciativa}" outcome="modificarIniciativa">
                     <f:param name="id" value="#{iniciativas.idIniciativa}" />
                 </h:link>
             </p:column>

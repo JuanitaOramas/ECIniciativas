@@ -102,6 +102,19 @@ public class IniciativasBean extends BasePageBean {
 
     }
 
+    public void updateIniciativa(int id,String iniciativa, String estado) throws Exception {
+        try {
+            System.out.println(">>>>>>>>>>>>>>>>>>>>>>BEANNNN>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+            System.out.println(id + " " + iniciativa + " "  + estado );
+
+            serviciosIniciativas.updateIniciativaService(id,iniciativa,estado);
+        } catch (Exception ex) {
+            System.out.println(">>>>>>>>>>>>>>>>>>>>>>BEANNNN>>CATH>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+            throw ex;
+        }
+
+    }
+
 
     private int id=0;
     public void setId(int id) {

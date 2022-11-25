@@ -51,6 +51,8 @@ public interface ServiciosIniciativas {
 
      public void insertIniciativas(String iniciativa, String palabraClave, String area ) throws ExcepcionServiciosSuscripciones;
 
+     public void updateIniciativaService(int id, String iniciativa, String estado ) throws ExcepcionServiciosSuscripciones;
+
      public Usuario consultarUsuarioPorCredentials(int id, String pass) throws ExcepcionServiciosSuscripciones;
 
 }

@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:o="http://omnifaces.org/ui"
+      xmlns:p="http://primefaces.org/ui">
+
+
+
+<h:head>
+
+
+    <title>Modificar iniciativas</title>
+
+    <style>
+
+
+        body {
+            background: #F3F3F1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Georgia;
+        }
+
+        h1 {
+            font-family: Georgia;
+
+        }
+
+        .iniciativa {
+
+            background-color: white;
+            width:70%;
+            margin-top: 10%;
+            padding: 25px;
+            -webkit-box-shadow: 4px 4px 5px 3px rgba(204,204,204,1);
+            -moz-box-shadow: 4px 4px 5px 3px rgba(204,204,204,1);
+            box-shadow: 4px 4px 5px 3px rgba(204,204,204,1);
+
+        }
+
+        .btn {
+            font-family: Georgia;
+            border: none;
+            border-radius: 10px;
+            background-color: lightblue;
+            color: black;
+            margin-top: 15px;
+
+        }
+
+        .btn:hover {
+            background-color: #555555;
+            color: grey;
+        }
+
+    </style>
+</h:head>
+<h:body>
+
+    <f:metadata>
+        <f:viewParam name="id" value="#{mb.id}">
+        </f:viewParam>
+    </f:metadata>
+
+
+    <div class="iniciativa">
+        <h:form>
+
+
+
+            <h:outputText value="#{mb.id}" />
+
+            <h1>Modificar iniciativas</h1>
+            <div class="formgrid grid">
+                <h3>Iniciativa</h3>
+                <p:inputText id="iniciativa" binding="#{iniciativa_val}" ></p:inputText>
+
+                <h3>Estado</h3>
+                <h:selectOneMenu  value="En espera de revisión" binding="#{estado}" >
+                    <f:selectItem itemValue="Revision" itemLabel="Revision" />
+                    <f:selectItem itemValue="Aprobado" itemLabel="Aprobado" />
+                    <f:selectItem itemValue="Rechazado" itemLabel="Rechazado" />
+                    <f:selectItem itemValue="En espera de revisión" itemLabel="En espera de revisión" />
+                </h:selectOneMenu >
+            </div>
+            <p:commandButton  value="Actualizar" class="btn" action="#{mb.updateIniciativa(mb.id,iniciativa_val.value, estado.value)}"></p:commandButton>
+
+        </h:form>
+    </div>
+
+
+</h:body>
+</html>
+

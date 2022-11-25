@@ -46,6 +46,12 @@
     </insert>
 
 
+    <update id="updateIniciativasService" >
+        update iniciativas set descripcion=#{iniciativa}, estado=#{estado} where idIniciativa=#{id} ;
+    </update>
+
+
+
 
     <resultMap type='Usuario' id='UsuarioIniciativaResult'>
         <id property='idUsuario' column='idUsuario'/>

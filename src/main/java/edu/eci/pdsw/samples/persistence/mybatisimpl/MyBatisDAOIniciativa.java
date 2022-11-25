@@ -110,7 +110,7 @@ public class MyBatisDAOIniciativa implements DaoIniciativa {
     public void saveIniciativas(String iniciativa, String palabraClave, String area) throws PersistenceException {
         try{
             System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-            System.out.println(iniciativa + "laaaaaaavainafea: " + palabraClave + " "  + area );
+            System.out.println(iniciativa + " " + palabraClave + " "  + area );
             System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
             iniciativaMapper.insertIniciativas(iniciativa, palabraClave, area);
         }
@@ -118,6 +118,20 @@ public class MyBatisDAOIniciativa implements DaoIniciativa {
             throw new PersistenceException("Error al consultar los pacientes:"+e.getLocalizedMessage(), e);
         }
     }
+
+    @Override
+    public void updateIniciativaService(int id, String iniciativa, String estado) throws PersistenceException {
+        try{
+            System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+            System.out.println(id + " " + iniciativa + " "  + estado );
+            System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+            iniciativaMapper.updateIniciativasService(id, iniciativa, estado);
+        }
+        catch(Exception e){
+            throw new PersistenceException("Error al consultar los pacientes:"+e.getLocalizedMessage(), e);
+        }
+    }
+
 
 
     @Override
