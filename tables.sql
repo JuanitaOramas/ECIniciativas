@@ -1,3 +1,4 @@
+/*
 -- BASE DE DATOS
 CREATE DATABASE IF NOT EXISTS bancoInciativasBD;
     DEFAULT CHARACTER SET utf8;
@@ -145,4 +146,4 @@ SELECT
             USUARIOS AS p JOIN INICIATIVAS as c ON
                 p.idUsuario = c.usuarios_idUsuario
         WHERE
-            p.idUsuario = 5 AND p.contrasena = 'juliana'
+            p.idUsuario = 5 AND p.contrasena = 'juliana' */
