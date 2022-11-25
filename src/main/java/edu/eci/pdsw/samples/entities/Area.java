@@ -3,6 +3,7 @@ package edu.eci.pdsw.samples.entities;
 public class Area {
     private int idArea;
     private String nombreArea;
+    private int cantidad;
 
 
     public Area(int idArea, String nombreArea) {
@@ -10,6 +11,16 @@ public class Area {
         this.nombreArea = nombreArea;
     }
 
+
+    public Area(long idArea, String nombreArea, long cantidad) {
+        this.idArea = (int) idArea;
+        this.nombreArea = nombreArea;
+        this.cantidad = (int) cantidad;
+    }
+
+
+    public int getCantidad() {return cantidad;}
+    public void setCantidad(int cantidad) {this.cantidad = cantidad;}
 
     public int getIdArea() {return idArea;}
     public void setIdArea(int idArea) {this.idArea = idArea;}

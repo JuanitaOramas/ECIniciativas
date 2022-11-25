@@ -49,6 +49,8 @@ public interface ServiciosIniciativas {
 
      public List<Area> consultarAreas( ) throws ExcepcionServiciosSuscripciones;
 
+     public List<Area> consultarCantidadAreas( ) throws ExcepcionServiciosSuscripciones;
+
      public void insertIniciativas(String iniciativa, String palabraClave, String area ) throws ExcepcionServiciosSuscripciones;
 
      public void updateIniciativaService(int id, String iniciativa, String estado ) throws ExcepcionServiciosSuscripciones;

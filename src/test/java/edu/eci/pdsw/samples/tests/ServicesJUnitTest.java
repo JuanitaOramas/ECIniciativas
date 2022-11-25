@@ -17,6 +17,7 @@
 package edu.eci.pdsw.samples.tests;
 
 import edu.eci.pdsw.samples.entities.Iniciativa;
+import edu.eci.pdsw.samples.entities.Usuario;
 import edu.eci.pdsw.samples.entities.estado;
 import edu.eci.pdsw.samples.services.ExcepcionServiciosSuscripciones;
 import edu.eci.pdsw.samples.services.ServiciosIniciativasFactory;
@@ -35,20 +36,18 @@ import org.junit.Test;
  */
 public class ServicesJUnitTest {
 
-    public ServicesJUnitTest() {
-    }
-
-    @Before
-    public void setUp() {
-    }
-
+//    public ServicesJUnitTest() {
+//    }
+//
+//    @Before
+//    public void setUp() {
+//    }
+//
 //    @After
 //    public void clearDB() throws SQLException {
-//        Connection conn = DriverManager.getConnection("jdbc:h2:file:./target/db/testdb;MODE=MYSQL", "anonymous", "anonymous");
+//        Connection conn = DriverManager.getConnection("jdbc:mysql://testanonimous.mysql.database.azure.com:3306/iniciativas_test?useSSL=false", "anonimous", "Sebastian1234");
 //        Statement stmt = conn.createStatement();
-//        stmt.execute("delete from CONSULTAS");
-//        stmt.execute("delete from PACIENTES");
-//        conn.commit();
+//        stmt.execute("delete from usuarios");
 //        conn.close();
 //    }
 //
@@ -58,46 +57,29 @@ public class ServicesJUnitTest {
 //     * @throws SQLException
 //     */
 //    private Connection getConnection() throws SQLException{
-//        return DriverManager.getConnection("jdbc:h2:file:./target/db/testdb;MODE=MYSQL", "anonymous", "anonymous");
+//        return DriverManager.getConnection("jdbc:mysql://testanonimous.mysql.database.azure.com:3306/iniciativas_test?useSSL=false", "anonimous", "Sebastian1234");
 //    }
 //
 //    @Test
-//    public void dadoRegistrosEnBD_CuandoSeConsultaPorID_EntoncesRetornaRegistro() throws SQLException, ExcepcionServiciosSuscripciones {
-//        //Insertar datos en la base de datos de pruebas, de acuerdo con la clase de equivalencia correspondiente (Arrange)
+//    public void dadoUnUsuarioCuandoSeConsultaDeberiaObtenerseSusDatos() throws SQLException, ExcepcionServiciosSuscripciones {
+//        //Insertar datos en la base de datos de pruebas, de acuerdo con la clase
+//        //de equivalencia correspondiente
+//
+//        // ARRANGE
+//        clearDB();
 //        Connection conn=getConnection();
 //        Statement stmt=conn.createStatement();
-//        stmt.execute("INSERT INTO `PACIENTES` (`id`, `tipo_id`, `nombre`, `fecha_nacimiento`) VALUES (9876,'TI','Carmenzo','1995-07-10')");
-//        stmt.execute("INSERT INTO `CONSULTAS` (`idCONSULTAS`, `fecha_y_hora`, `resumen`, `PACIENTES_id`, `PACIENTES_tipo_id`) VALUES (1262218,'2001-01-01 00:00:00','Gracias',9876,'TI')");
-//        conn.commit();
+//        stmt.execute("INSERT INTO `areas` VALUES (1,'prueba')");
+//        stmt.execute("INSERT INTO `usuarios` (`idUsuario`,`perfil`,`informacion`,`correo`,`contrasena`) VALUES (1,'fulanito','islazy','veganito2000@mail.com','veganito')");
+//        stmt.execute("INSERT INTO `iniciativas` (`estado`,`descripcion`,`fecha`,`usuarios_idUsuario`,`areas_idArea`) VALUES ('en proceso','su solicitud esta siedo revisada','2008-7-04',1,1)");
+//
 //        conn.close();
 //
-//        //Realizar la operacion de la logica y la prueba (Act)
-//        Iniciativa iniciativaTest = ServiciosIniciativasFactory.getInstance().getTestingForumServices().consultarPacientesPorId(9876, estado.TI);
-//
-//        // Assert
-//        Assert.assertEquals(iniciativaTest.getId(),9876);
-//        Assert.assertEquals(iniciativaTest.getTipo_id(), estado.TI);
-//        Assert.assertEquals(iniciativaTest.getNombre(),"Carmenzo");
+//        //Realizar la operacion de la logica y la prueba
+//        List<Iniciativa> initiative = ServiciosIniciativasFactory.getInstance().getTestingForumServices().consultarIniciativasPorEstado("en proceso");
+//        //assert ...
+//        Assert.assertEquals(initiative.get(0).getDescripcion(), "su solicitud esta siedo revisada");
 //    }
-//
-//    @Test
-//    public void dadoRegistrosEnBD_CuandoSeConsultaMenoresEnfermos_EntoncesRetornaRegistro() throws SQLException, ExcepcionServiciosSuscripciones {
-//        //Insertar datos en la base de datos de pruebas, de acuerdo con la clase de equivalencia correspondiente (Arrange)
-//        Connection conn=getConnection();
-//        Statement stmt=conn.createStatement();
-//        stmt.execute("INSERT INTO `PACIENTES` (`id`, `tipo_id`, `nombre`, `fecha_nacimiento`) VALUES (9877,'TI','Carmenza','2009-07-10')");
-//        stmt.execute("INSERT INTO `CONSULTAS` (`idCONSULTAS`, `fecha_y_hora`, `resumen`, `PACIENTES_id`, `PACIENTES_tipo_id`) VALUES (1262220,'2001-01-01 00:00:00','hepatitis',9877,'TI')");
-//        conn.commit();
-//        conn.close();
-//
-//        // Act
-//        List<Iniciativa> iniciativas = ServiciosIniciativasFactory.getInstance().getTestingForumServices().consultarMenoresConEnfermedadContagiosa();
-//
-//        // Assert
-//        Assert.assertEquals(iniciativas.get(0).getId(),9877);
-//        Assert.assertEquals(iniciativas.get(0).getTipo_id(), estado.TI);
-//        Assert.assertEquals(iniciativas.get(0).getNombre(),"Carmenza");
-//    }
-    
+
 
 }

@@ -28,6 +28,7 @@ public interface DaoIniciativa {
     public Usuario load(int id) throws PersistenceException;
 
     public List<Area> loadAreas() throws PersistenceException;
+    public List<Area> loadCantidadAreas() throws PersistenceException;
 
     public void saveIniciativas(String iniciativa, String palabraClave, String area) throws PersistenceException;
 

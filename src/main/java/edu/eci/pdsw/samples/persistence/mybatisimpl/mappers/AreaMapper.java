@@ -9,4 +9,5 @@ import org.apache.ibatis.annotations.Param;
 
 public interface AreaMapper {
     List<Area> getArea();
+    List<Area> getCantidadAreas();
 }

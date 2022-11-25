@@ -68,6 +68,15 @@ public class ServiciosIniciativas implements edu.eci.pdsw.samples.services.Servi
         }
     }
 
+    @Override
+    public List<Area> consultarCantidadAreas() throws ExcepcionServiciosSuscripciones {
+        try {
+            return daoPaciente.loadCantidadAreas();
+        } catch (PersistenceException ex) {
+            throw new ExcepcionServiciosSuscripciones("Error al realizar la consulta:"+ex.getLocalizedMessage(), ex);
+        }
+    }
+
 
     @Override
     public void insertIniciativas(String iniciativa, String palabraClave, String area ) throws ExcepcionServiciosSuscripciones {

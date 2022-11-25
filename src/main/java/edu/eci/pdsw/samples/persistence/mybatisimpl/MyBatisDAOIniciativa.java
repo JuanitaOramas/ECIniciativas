@@ -107,6 +107,16 @@ public class MyBatisDAOIniciativa implements DaoIniciativa {
     }
 
     @Override
+    public List<Area> loadCantidadAreas() throws PersistenceException {
+        try{
+            return areaMapper.getCantidadAreas();
+        }
+        catch(Exception e){
+            throw new PersistenceException("Error al consultar los pacientes:"+e.getLocalizedMessage(), e);
+        }
+    }
+
+    @Override
     public void saveIniciativas(String iniciativa, String palabraClave, String area) throws PersistenceException {
         try{
             System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");

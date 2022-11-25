@@ -17,5 +17,19 @@
     </select>
 
 
+    <resultMap type='Area' id='CantidadAreaResult'>
+        <id property='idArea' column='idArea'/>
+        <result property='nombreArea' column='nombreArea'/>
+        <result property='cantidad' column='cantidad'/>
+    </resultMap>
+
+    <select id="getCantidadAreas" resultMap="CantidadAreaResult">
+        SELECT 1,a.nombreArea as nombreArea, COUNT(*) as cantidad
+        FROM
+            AREAS as a
+        join iniciativas as i on a.idArea =i.areas_idArea group by nombreArea;
+    </select>
+
+
 
 </mapper>
