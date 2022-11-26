@@ -48,8 +48,8 @@ CREATE TABLE votos(
 
 CREATE TABLE palabrasClave(
   palabra VARCHAR(200) NOT NULL PRIMARY KEY,
-  usuarios_idUsuario int,
-  FOREIGN KEY (usuarios_idUsuario) REFERENCES usuarios(idUsuario) ON DELETE CASCADE
+  iniciativas_idIniciativa int,
+  FOREIGN KEY (iniciativas_idIniciativa) REFERENCES iniciativas(idIniciativa) ON DELETE CASCADE
 );
 
 
