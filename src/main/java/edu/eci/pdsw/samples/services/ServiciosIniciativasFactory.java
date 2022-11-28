@@ -5,6 +5,8 @@
  */
 package edu.eci.pdsw.samples.services;
 
+import edu.eci.pdsw.samples.persistence.DaoUsuario;
+import edu.eci.pdsw.samples.persistence.mybatisimpl.MyBatisDAOUsuario;
 import org.mybatis.guice.XMLMyBatisModule;
 import org.mybatis.guice.datasource.helper.JdbcHelper;
 
@@ -33,6 +35,7 @@ public class ServiciosIniciativasFactory {
                 setClassPathResource("mybatis-config.xml");
                 bind(ServiciosIniciativas.class).to(edu.eci.pdsw.samples.services.impl.ServiciosIniciativas.class);
                 bind(DaoIniciativa.class).to(MyBatisDAOIniciativa.class);
+                bind(DaoUsuario.class).to(MyBatisDAOUsuario.class);
 
             }
 
@@ -47,6 +50,7 @@ public class ServiciosIniciativasFactory {
                 setClassPathResource("mybatis-config-h2.xml");
                 bind(ServiciosIniciativas.class).to(edu.eci.pdsw.samples.services.impl.ServiciosIniciativas.class);
                 bind(DaoIniciativa.class).to(MyBatisDAOIniciativa.class);
+                bind(DaoUsuario.class).to(MyBatisDAOUsuario.class);
             }
 
         }

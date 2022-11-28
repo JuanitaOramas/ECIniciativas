@@ -20,12 +20,9 @@ public interface DaoIniciativa {
     public List<Iniciativa> loadAll() throws PersistenceException;
 
 
-
     public void save(Iniciativa e) throws PersistenceException;
     
     public void update(Iniciativa e) throws PersistenceException;
-
-    public Usuario load(int id) throws PersistenceException;
 
     public List<Area> loadAreas() throws PersistenceException;
     public List<Area> loadCantidadAreas() throws PersistenceException;
@@ -34,6 +31,4 @@ public interface DaoIniciativa {
 
     public void updateIniciativaService(int id, String iniciativa, String estado) throws PersistenceException;
 
-//    public void addConsulta(int id, estado tipoId, Consulta c) throws PersistenceException;
-    public Usuario loadConsultaUsuario(int id, String pass) throws PersistenceException;
 }

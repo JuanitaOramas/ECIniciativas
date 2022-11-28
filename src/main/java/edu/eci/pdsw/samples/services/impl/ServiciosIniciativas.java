@@ -11,6 +11,7 @@ import edu.eci.pdsw.samples.entities.Iniciativa;
 import edu.eci.pdsw.samples.entities.Usuario;
 import edu.eci.pdsw.samples.entities.estado;
 import edu.eci.pdsw.samples.persistence.DaoIniciativa;
+import edu.eci.pdsw.samples.persistence.DaoUsuario;
 import edu.eci.pdsw.samples.persistence.PersistenceException;
 import edu.eci.pdsw.samples.services.ExcepcionServiciosSuscripciones;
 
@@ -21,6 +22,8 @@ public class ServiciosIniciativas implements edu.eci.pdsw.samples.services.Servi
 
     @Inject
     private DaoIniciativa daoPaciente;
+    @Inject
+    private DaoUsuario daoUsuario;
 
     @Override
     public List<Iniciativa> consultarIniciativas() throws ExcepcionServiciosSuscripciones {
@@ -53,7 +56,7 @@ public class ServiciosIniciativas implements edu.eci.pdsw.samples.services.Servi
     @Override
     public Usuario getUsuarioById(int id) throws ExcepcionServiciosSuscripciones {
         try {
-            return daoPaciente.load(id);
+            return daoUsuario.load(id);
         } catch (PersistenceException ex) {
             throw new ExcepcionServiciosSuscripciones("Error al realizar la consulta:"+ex.getLocalizedMessage(), ex);
         }
@@ -100,7 +103,7 @@ public class ServiciosIniciativas implements edu.eci.pdsw.samples.services.Servi
     @Override
     public Usuario consultarUsuarioPorCredentials(int id, String pass) throws ExcepcionServiciosSuscripciones {
         try {
-            return daoPaciente.loadConsultaUsuario(id, pass);
+            return daoUsuario.loadConsultaUsuario(id, pass);
         } catch (Exception ex) {
             throw new ExcepcionServiciosSuscripciones("Error al realizar la consulta:"+ex.getLocalizedMessage(), ex);
         }

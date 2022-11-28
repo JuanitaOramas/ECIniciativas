@@ -4,7 +4,9 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
 import edu.eci.pdsw.samples.persistence.DaoIniciativa;
+import edu.eci.pdsw.samples.persistence.DaoUsuario;
 import edu.eci.pdsw.samples.persistence.mybatisimpl.MyBatisDAOIniciativa;
+import edu.eci.pdsw.samples.persistence.mybatisimpl.MyBatisDAOUsuario;
 import edu.eci.pdsw.samples.services.ServiciosIniciativas;
 import org.mybatis.guice.XMLMyBatisModule;
 import org.mybatis.guice.datasource.helper.JdbcHelper;
@@ -27,6 +29,7 @@ public class GuiceContextListener implements ServletContextListener {
 
                 bind(ServiciosIniciativas.class).to(edu.eci.pdsw.samples.services.impl.ServiciosIniciativas.class);
                 bind(DaoIniciativa.class).to(MyBatisDAOIniciativa.class);
+                bind(DaoUsuario.class).to(MyBatisDAOUsuario.class);
             }
         });
         servletContextEvent.getServletContext().setAttribute(Injector.class.getName(), injector);
