@@ -36,10 +36,5 @@ public interface IniciativaMapper {
 
     void updateIniciativasService(@Param("id") int id,@Param("iniciativa") String iniciativa,@Param("estado") String estado);
 
-    //miralo
-
-    //Iniciativa getPaciente(@Param("id") int id, @Param("tipoId") estado estado);
-
-    //List<Iniciativa> getPacientesEnfermosMenores();
 
 }

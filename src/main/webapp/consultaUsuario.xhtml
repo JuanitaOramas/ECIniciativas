@@ -39,13 +39,13 @@
             <h3>Contraseña</h3>
                 <p:inputText id="identificacion_pass" binding="#{password}"></p:inputText>
         </div>
-        <p:commandButton value="Consultar" update="iniciativas" action="#{ub.verDatas(usuario.value, password.value)}"   ></p:commandButton>
-        <p:dataTable id="iniciativas" var="iniciativa" value="#{ub.getSelectedUsuario().getIniciativas()}">
+        <p:commandButton value="Consultar" update="iniciativas" action="#{usuarioBean.consultarUsuarioCredenciales(usuario.value, password.value)}"   ></p:commandButton>
+        <p:dataTable id="iniciativas" var="iniciativa" value="#{usuarioBean.getSelectedUsuario().getIniciativas()}">
             <p:column headerText="Nombre">
-                <h:outputText value="#{ub.getSelectedUsuario().getPerfil()}" />
+                <h:outputText value="#{usuarioBean.getSelectedUsuario().getPerfil()}" />
             </p:column>
             <p:column headerText="Informacion">
-                <h:outputText value="#{ub.getSelectedUsuario().getInformacion()}" />
+                <h:outputText value="#{usuarioBean.getSelectedUsuario().getInformacion()}" />
             </p:column>
             <p:column headerText="Codigo de la Iniciativa">
                 <h:outputText value="#{iniciativa.getIdIniciativa()}" />

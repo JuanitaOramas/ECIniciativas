@@ -16,7 +16,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.ejb.Singleton;
 
-@ManagedBean(name = "ub")
+@ManagedBean(name = "usuarioBean")
 @SessionScoped
 @Singleton
 public class UsuarioBean extends BasePageBean {
@@ -33,11 +33,11 @@ public class UsuarioBean extends BasePageBean {
         return selectedUsuario;
     }
 
-    public void setSelectedUsuario(Usuario selectedUsuario) {
-        this.selectedUsuario = selectedUsuario;
-    }
+//    public void setSelectedUsuario(Usuario selectedUsuario) {
+//        this.selectedUsuario = selectedUsuario;
+//    }
 
-    public void verDatas(int id, String pass) throws ExcepcionServiciosSuscripciones {
+    public void consultarUsuarioCredenciales(int id, String pass) throws ExcepcionServiciosSuscripciones {
         try {
             System.out.println(">>>>>>>>>>>>>>>>>>>>>>BEANNNN>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
             selectedUsuario = serviciosUsuario.consultarUsuarioPorCredentials(id, pass);

@@ -43,21 +43,6 @@ public class Statistics extends BasePageBean  {
         final ChartSeries estadosCantidad = countEstados();
 
 
-
-
-
-//        final ChartSeries venta  = new ChartSeries("Venta");
-//        venta.set("2008", 800);
-//        venta.set("2009", 1300);
-//        venta.set("2010", 700);
-//        venta.set("2011", 500);
-
-//        final ChartSeries alquiler  = new ChartSeries("Alquiler");
-//        alquiler.set("2008", 1200);
-//        alquiler.set("2009", 1100);
-//        alquiler.set("2010", 1700);
-//        alquiler.set("2011", 1900);
-
         viviendas.addSeries(venta);
         estados.addSeries(estadosCantidad);
 

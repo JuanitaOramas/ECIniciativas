@@ -20,6 +20,8 @@ public class Usuario {
         iniciativas=new ArrayList<>();
     }
 
+    public Usuario() {}
+
     public List<Iniciativa> getIniciativas() {
         return iniciativas;
     }
