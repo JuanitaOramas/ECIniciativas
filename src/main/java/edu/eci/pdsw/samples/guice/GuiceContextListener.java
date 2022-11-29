@@ -6,6 +6,7 @@ import javax.servlet.ServletContextListener;
 import edu.eci.pdsw.samples.persistence.DaoIniciativa;
 import edu.eci.pdsw.samples.persistence.mybatisimpl.MyBatisDAOIniciativa;
 import edu.eci.pdsw.samples.services.ServiciosIniciativas;
+import edu.eci.pdsw.samples.services.ServiciosUsuario;
 import org.mybatis.guice.XMLMyBatisModule;
 import org.mybatis.guice.datasource.helper.JdbcHelper;
 import com.google.inject.Guice;
@@ -26,6 +27,7 @@ public class GuiceContextListener implements ServletContextListener {
                 setClassPathResource("mybatis-config.xml");
 
                 bind(ServiciosIniciativas.class).to(edu.eci.pdsw.samples.services.impl.ServiciosIniciativas.class);
+                bind(ServiciosUsuario.class).to(edu.eci.pdsw.samples.services.impl.ServiciosUsuario.class);
                 bind(DaoIniciativa.class).to(MyBatisDAOIniciativa.class);
             }
         });

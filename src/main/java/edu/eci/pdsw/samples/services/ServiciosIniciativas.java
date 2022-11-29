@@ -44,8 +44,7 @@ public interface ServiciosIniciativas {
      * 'varicela'
      * @throws ExcepcionServiciosSuscripciones si se presenta otro problema en las capas inferiores.
      */
-//    public List<Iniciativa> consultarMenoresConEnfermedadContagiosa() throws ExcepcionServiciosSuscripciones;
-     public Usuario getUsuarioById(int id ) throws ExcepcionServiciosSuscripciones;
+
 
      public List<Area> consultarAreas( ) throws ExcepcionServiciosSuscripciones;
 
@@ -55,6 +54,5 @@ public interface ServiciosIniciativas {
 
      public void updateIniciativaService(int id, String iniciativa, String estado ) throws ExcepcionServiciosSuscripciones;
 
-     public Usuario consultarUsuarioPorCredentials(int id, String pass) throws ExcepcionServiciosSuscripciones;
 
 }

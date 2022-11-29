@@ -8,6 +8,7 @@ import edu.eci.pdsw.samples.entities.Usuario;
 import edu.eci.pdsw.samples.entities.estado;
 import edu.eci.pdsw.samples.services.ExcepcionServiciosSuscripciones;
 import edu.eci.pdsw.samples.services.ServiciosIniciativas;
+import edu.eci.pdsw.samples.services.ServiciosUsuario;
 import edu.eci.pdsw.samples.services.ServiciosIniciativasFactory;
 
 import java.util.List;
@@ -23,6 +24,9 @@ public class UsuarioBean extends BasePageBean {
     @Inject
     private ServiciosIniciativas serviciosIniciativas;
 
+    @Inject
+    private ServiciosUsuario serviciosUsuario;
+
     Usuario selectedUsuario;
 
     public Usuario getSelectedUsuario() {
@@ -36,10 +40,9 @@ public class UsuarioBean extends BasePageBean {
     public void verDatas(int id, String pass) throws ExcepcionServiciosSuscripciones {
         try {
             System.out.println(">>>>>>>>>>>>>>>>>>>>>>BEANNNN>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-            selectedUsuario = serviciosIniciativas.consultarUsuarioPorCredentials(id, pass);
-        } catch (Exception e) {
-            System.out.println(">>>>>>>>>>>>>>>>>>>>>>BEANNNN>>CATH>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-            e.printStackTrace();
+            selectedUsuario = serviciosUsuario.consultarUsuarioPorCredentials(id, pass);
+        } catch (Exception ex) {
+            throw new ExcepcionServiciosSuscripciones("Error al realizar la consulta:"+ex.getLocalizedMessage(), ex);
         }
     }
 

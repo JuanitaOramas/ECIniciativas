@@ -50,14 +50,6 @@ public class ServiciosIniciativas implements edu.eci.pdsw.samples.services.Servi
         }
     }
 
-    @Override
-    public Usuario getUsuarioById(int id) throws ExcepcionServiciosSuscripciones {
-        try {
-            return daoPaciente.load(id);
-        } catch (PersistenceException ex) {
-            throw new ExcepcionServiciosSuscripciones("Error al realizar la consulta:"+ex.getLocalizedMessage(), ex);
-        }
-    }
 
     @Override
     public List<Area> consultarAreas() throws ExcepcionServiciosSuscripciones {
@@ -92,16 +84,6 @@ public class ServiciosIniciativas implements edu.eci.pdsw.samples.services.Servi
         try {
             daoPaciente.updateIniciativaService(id,iniciativa,estado);
         } catch (PersistenceException ex) {
-            throw new ExcepcionServiciosSuscripciones("Error al realizar la consulta:"+ex.getLocalizedMessage(), ex);
-        }
-    }
-
-
-    @Override
-    public Usuario consultarUsuarioPorCredentials(int id, String pass) throws ExcepcionServiciosSuscripciones {
-        try {
-            return daoPaciente.loadConsultaUsuario(id, pass);
-        } catch (Exception ex) {
             throw new ExcepcionServiciosSuscripciones("Error al realizar la consulta:"+ex.getLocalizedMessage(), ex);
         }
     }

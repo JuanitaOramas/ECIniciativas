@@ -8,19 +8,20 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.validation.constraints.Null;
 
+import com.google.inject.Inject;
 import edu.eci.pdsw.samples.entities.Area;
 import edu.eci.pdsw.samples.entities.Iniciativa;
 import edu.eci.pdsw.samples.services.ExcepcionServiciosSuscripciones;
 import edu.eci.pdsw.samples.services.ServiciosIniciativasFactory;
+import edu.eci.pdsw.samples.services.ServiciosIniciativas;
 import org.primefaces.model.chart.HorizontalBarChartModel;
 import org.primefaces.model.chart.ChartSeries;
 
 @ManagedBean(name = "statistics")
 @SessionScoped
 
-public class Statistics implements Serializable {
+public class Statistics extends BasePageBean  {
 
-    private static final long serialVersionUID = 6401166601481931346L;
 
     private HorizontalBarChartModel viviendas;
 
@@ -66,7 +67,7 @@ public class Statistics implements Serializable {
         final ChartSeries venta  = new ChartSeries("Areas");
 
         try {
-            List<Area> cantidadAreasList = ServiciosIniciativasFactory.getInstance().getForumsServices().consultarCantidadAreas();
+            List<Area> cantidadAreasList =ServiciosIniciativasFactory.getInstance().getForumsServices().consultarCantidadAreas();
             for(Area a : cantidadAreasList) {
 //                System.out.println(a.getNombreArea() + " " + a.getCantidad());
                 venta.set(a.getNombreArea(), a.getCantidad());
