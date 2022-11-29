@@ -37,6 +37,7 @@ import java.util.List;
 public class MyBatisDAOIniciativa implements DaoIniciativa {
 
 
+
     @Inject
     IniciativaMapper iniciativaMapper;
     @Inject

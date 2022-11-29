@@ -14,11 +14,11 @@ import edu.eci.pdsw.samples.services.ServiciosIniciativasFactory;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-
+import javax.ejb.Singleton;
 
 @ManagedBean(name = "ub")
-
 @SessionScoped
+@Singleton
 public class UsuarioBean extends BasePageBean {
 
     @Inject

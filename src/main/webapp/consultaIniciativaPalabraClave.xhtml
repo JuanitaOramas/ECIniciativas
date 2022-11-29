@@ -41,9 +41,9 @@
             <p:inputText id="identificacion_paciente" binding="#{input}" ></p:inputText>
 
 
-            <p:commandButton  action="#{mb.getIniciativasPorPalabraClave(input.value)}" value="Consultar" update="iniciativas"></p:commandButton>
+            <p:commandButton  action="#{iniciativaPalabraClave.getIniciativasPorPalabraClave(input.value)}" value="Consultar" update="iniciativas"></p:commandButton>
 
-        <p:dataTable id="iniciativas" var="iniciativa" value="#{mb.getIniciativasPorPalabraClaveList()}" lazy="false" paginator="true" paginatorposition="bottom" rows="10" dynamic="true" styleClass="borderless">
+        <p:dataTable id="iniciativas" var="iniciativa" value="#{iniciativaPalabraClave.getIniciativasPorPalabraClaveList()}" lazy="false" paginator="true" paginatorposition="bottom" rows="10" dynamic="true" styleClass="borderless">
             <p:column headerText="Id">
                 <h:outputText value="#{iniciativa.idIniciativa}" />
             </p:column>
