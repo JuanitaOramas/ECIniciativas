@@ -75,4 +75,16 @@
             p.idUsuario = #{id} AND p.contrasena = #{pass}
     </select>
 
+
+    <select id="consultarIniciativasPorUsuario" resultMap="IniciativasResult">
+        SELECT
+            i.idIniciativa, i.estado, i.descripcion, i.fecha
+        FROM
+            USUARIOS AS p JOIN INICIATIVAS as i ON
+                p.idUsuario = i.usuarios_idUsuario
+        WHERE
+            p.informacion = #{nombre}
+    </select>
+
+
 </mapper>

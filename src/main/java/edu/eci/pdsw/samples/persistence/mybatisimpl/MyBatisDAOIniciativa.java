@@ -166,4 +166,15 @@ public class MyBatisDAOIniciativa implements DaoIniciativa {
         }
     }
 
+    @Override
+    public List<Iniciativa>  loadConsultaUsuarioNombre(String nombre) throws PersistenceException {
+        //To change body of generated methods, choose Tools | Templates.
+        try{
+            return iniciativaMapper.consultarIniciativasPorUsuario(nombre);
+        }
+        catch(Exception e){
+            throw new PersistenceException("Error al consultar los pacientes:"+e.getLocalizedMessage(), e);
+        }
+    }
+
 }

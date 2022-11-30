@@ -33,18 +33,35 @@ public class UsuarioBean extends BasePageBean {
         return selectedUsuario;
     }
 
-//    public void setSelectedUsuario(Usuario selectedUsuario) {
-//        this.selectedUsuario = selectedUsuario;
+//    public void consultarUsuarioCredenciales(int id, String pass) throws ExcepcionServiciosSuscripciones {
+//        try {
+//            System.out.println(">>>>>>>>>>>>>>>>>>>>>>BEANNNN>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+//            selectedUsuario = serviciosUsuario.consultarUsuarioPorCredentials(id, pass);
+//        } catch (Exception ex) {
+//            throw new ExcepcionServiciosSuscripciones("Error al realizar la consulta:"+ex.getLocalizedMessage(), ex);
+//        }
 //    }
 
-    public void consultarUsuarioCredenciales(int id, String pass) throws ExcepcionServiciosSuscripciones {
+
+    List<Iniciativa> listaIniciativas;
+
+
+
+    public List<Iniciativa> consultarIniciativasPorUsuario(String nombre) throws Exception{
         try {
-            System.out.println(">>>>>>>>>>>>>>>>>>>>>>BEANNNN>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-            selectedUsuario = serviciosUsuario.consultarUsuarioPorCredentials(id, pass);
-        } catch (Exception ex) {
-            throw new ExcepcionServiciosSuscripciones("Error al realizar la consulta:"+ex.getLocalizedMessage(), ex);
+            System.out.println(">>>>>> NOMBRE: " + nombre);
+            listaIniciativas = serviciosIniciativas.consultarIniciativasPorNombreUsuario(nombre);
+            return listaIniciativas;
+        } catch (ExcepcionServiciosSuscripciones ex) {
+
+            throw ex;
         }
     }
+
+    public List<Iniciativa> consultarIniciativasPorUsuarioList(){
+        return listaIniciativas;
+    }
+
 
 
 }

@@ -36,5 +36,7 @@ public interface IniciativaMapper {
 
     void updateIniciativasService(@Param("id") int id,@Param("iniciativa") String iniciativa,@Param("estado") String estado);
 
+    List<Iniciativa> consultarIniciativasPorUsuario(@Param("nombre") String nombre);
+
 
 }

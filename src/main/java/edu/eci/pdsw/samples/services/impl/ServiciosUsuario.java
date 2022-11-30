@@ -34,4 +34,9 @@ public class ServiciosUsuario implements edu.eci.pdsw.samples.services.Servicios
             throw new ExcepcionServiciosSuscripciones("Error al realizar la consulta:"+ex.getLocalizedMessage(), ex);
         }
     }
+
+
+
+
+
 }

@@ -89,4 +89,14 @@ public class ServiciosIniciativas implements edu.eci.pdsw.samples.services.Servi
     }
 
 
+    @Override
+    public List<Iniciativa> consultarIniciativasPorNombreUsuario(String nombre) throws ExcepcionServiciosSuscripciones {
+        try {
+            return daoPaciente.loadConsultaUsuarioNombre(nombre);
+        } catch (Exception ex) {
+            throw new ExcepcionServiciosSuscripciones("Error al realizar la consulta:"+ex.getLocalizedMessage(), ex);
+        }
+    }
+
+
 }

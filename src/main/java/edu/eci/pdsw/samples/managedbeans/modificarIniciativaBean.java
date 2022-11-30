@@ -15,7 +15,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
 
-@ManagedBean(name = "usuarioBean")
+@ManagedBean(name = "modificarIniciativa")
 
 @SessionScoped
 public class modificarIniciativaBean extends BasePageBean {

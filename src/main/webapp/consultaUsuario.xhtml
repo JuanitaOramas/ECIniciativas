@@ -36,17 +36,13 @@
         <div class="formgrid grid">
             <h3>Usuario</h3>
                 <p:inputText id="identificacion_usuario" binding="#{usuario}"></p:inputText>
-            <h3>Contraseña</h3>
-                <p:inputText id="identificacion_pass" binding="#{password}"></p:inputText>
+
+            <p:commandButton  action="#{usuarioBean.consultarIniciativasPorUsuario(usuario.value)}" value="Consultar" update="iniciativas" ></p:commandButton>
+
         </div>
-        <p:commandButton value="Consultar" update="iniciativas" action="#{usuarioBean.consultarUsuarioCredenciales(usuario.value, password.value)}"   ></p:commandButton>
-        <p:dataTable id="iniciativas" var="iniciativa" value="#{usuarioBean.getSelectedUsuario().getIniciativas()}">
-            <p:column headerText="Nombre">
-                <h:outputText value="#{usuarioBean.getSelectedUsuario().getPerfil()}" />
-            </p:column>
-            <p:column headerText="Informacion">
-                <h:outputText value="#{usuarioBean.getSelectedUsuario().getInformacion()}" />
-            </p:column>
+
+        <p:dataTable id="iniciativas" var="iniciativa" value="#{usuarioBean.consultarIniciativasPorUsuarioList()}" >
+
             <p:column headerText="Codigo de la Iniciativa">
                 <h:outputText value="#{iniciativa.getIdIniciativa()}" />
             </p:column>
@@ -60,6 +56,7 @@
                 <h:outputText value="#{iniciativa.getFecha()}" />
             </p:column>
         </p:dataTable>
+
 
 
     </h:form>

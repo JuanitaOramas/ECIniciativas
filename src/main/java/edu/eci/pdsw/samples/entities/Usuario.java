@@ -1,5 +1,6 @@
 package edu.eci.pdsw.samples.entities;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +18,16 @@ public class Usuario {
         this.informacion = informacion;
         this.email = email;
         this.pass = pass;
-        iniciativas=new ArrayList<>();
+    }
+
+    public Usuario(int idUsuario, String perfil, String informacion, String email, String pass,List<Iniciativa> iniciativas) {
+        this.idUsuario = idUsuario;
+        this.perfil = perfil;
+        this.informacion = informacion;
+        this.email = email;
+        this.pass = pass;
+        this.iniciativas=iniciativas;
+
     }
 
     public Usuario() {}

@@ -61,7 +61,7 @@
 <h:body>
 
     <f:metadata>
-        <f:viewParam name="id" value="#{usuarioBean.id}">
+        <f:viewParam name="id" value="#{modificarIniciativa.id}">
         </f:viewParam>
     </f:metadata>
 
@@ -83,7 +83,7 @@
                     <f:selectItem itemValue="En espera de revisión" itemLabel="En espera de revisión" />
                 </h:selectOneMenu >
             </div>
-            <p:commandButton  value="Actualizar" class="btn" action="#{usuarioBean.updateIniciativa(usuarioBean.id,iniciativa_val.value, estado.value)}"></p:commandButton>
+            <p:commandButton  value="Actualizar" class="btn" action="#{modificarIniciativa.updateIniciativa(modificarIniciativa.id,iniciativa_val.value, estado.value)}"></p:commandButton>
 
         </h:form>
     </div>
