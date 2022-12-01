@@ -52,14 +52,13 @@ public class consultarAreas {
         Connection conn=getConnection();
         Statement stmt=conn.createStatement();
         stmt.execute("INSERT INTO areas VALUES (1,'Estudiantes PreGrado')");
-        stmt.execute("INSERT INTO areas VALUES (2,'Profesores')");
         stmt.execute("INSERT INTO `usuarios` (`idUsuario`,`perfil`,`informacion`,`correo`,`contrasena`) VALUES (1,'fulanito','islazy','veganito2000@mail.com','veganito')");
         stmt.execute("INSERT INTO `iniciativas` (`estado`,`descripcion`,`fecha`,`usuarios_idUsuario`,`areas_idArea`) VALUES ('en proceso','su solicitud esta siedo revisada','2008-7-04',1,1)");
 
         conn.close();
 
         //Realizar la operacion de la logica y la prueba
-        List <Area> areas = ServiciosIniciativasFactory.getInstance().getTestingForumServices().consultarCantidadAreas();
+        List <Area> areas = ServiciosIniciativasFactory.getInstance().getTestingForumServices().consultarAreas();
         //assert ...
         Assert.assertEquals(areas.get(0).getNombreArea(),"Estudiantes PreGrado");
 
