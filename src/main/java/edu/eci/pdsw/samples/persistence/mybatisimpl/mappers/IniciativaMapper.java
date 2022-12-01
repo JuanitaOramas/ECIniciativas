@@ -19,8 +19,6 @@ package edu.eci.pdsw.samples.persistence.mybatisimpl.mappers;
 import java.util.List;
 
 import edu.eci.pdsw.samples.entities.Iniciativa;
-import edu.eci.pdsw.samples.entities.Usuario;
-import edu.eci.pdsw.samples.entities.estado;
 import org.apache.ibatis.annotations.Param;
 
 
@@ -28,7 +26,7 @@ public interface IniciativaMapper {
 
     List<Iniciativa> getIniciativas();
 
-    List<Iniciativa> getIniciativasPorPalabraClave(@Param("Palabra")  String Palabra);
+    List<Iniciativa> getIniciativasPorPalabraClave(@Param("Palabra")  String palabra);
 
     List<Iniciativa> getIniciativasPorEstado(@Param("estado")  String estado);
 

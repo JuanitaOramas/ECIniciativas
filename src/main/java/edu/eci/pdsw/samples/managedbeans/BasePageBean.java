@@ -20,7 +20,6 @@ public abstract class BasePageBean implements Serializable {
                     .getContext();
             injector = (Injector) servletContext.getAttribute(Injector.class.getName());
         }
-        //System.out.println(injector);
         return injector;
     }
 

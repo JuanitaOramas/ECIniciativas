@@ -1,7 +1,6 @@
 package edu.eci.pdsw.samples.entities;
 
-import java.sql.Date;
-import java.util.ArrayList;
+
 import java.util.List;
 
 public class Usuario {

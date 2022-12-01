@@ -22,23 +22,11 @@ public class IniciativasBean extends BasePageBean {
 
     @Inject
     private ServiciosIniciativas serviciosIniciativas;
-
     private Iniciativa iniciativa;
 
 
-//    estado estado;
-
     List<Iniciativa> listaIniciativas;
     List<Area> listaAreas;
-
-
-//    public void setTipoIdentificacion(estado estado) {
-//        this.estado = estado;
-//    }
-//
-//    public estado getTipoIdentificacion() {
-//        return estado;
-//    }
 
 
     public List<Iniciativa> getIniciativas() throws Exception{

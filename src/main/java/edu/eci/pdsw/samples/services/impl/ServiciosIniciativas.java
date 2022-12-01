@@ -8,8 +8,6 @@ package edu.eci.pdsw.samples.services.impl;
 import com.google.inject.Inject;
 import edu.eci.pdsw.samples.entities.Area;
 import edu.eci.pdsw.samples.entities.Iniciativa;
-import edu.eci.pdsw.samples.entities.Usuario;
-import edu.eci.pdsw.samples.entities.estado;
 import edu.eci.pdsw.samples.persistence.DaoIniciativa;
 import edu.eci.pdsw.samples.persistence.PersistenceException;
 import edu.eci.pdsw.samples.services.ExcepcionServiciosSuscripciones;
@@ -27,7 +25,7 @@ public class ServiciosIniciativas implements edu.eci.pdsw.samples.services.Servi
         try {
             return daoPaciente.loadAll();
         } catch (PersistenceException ex) {
-            throw new ExcepcionServiciosSuscripciones("Error al realizar la consulta:"+ex.getLocalizedMessage(), ex);
+            throw new ExcepcionServiciosSuscripciones("Error al realizar la consulta de la iniciativa:"+ex.getLocalizedMessage(), ex);
         }
     }
 
@@ -37,7 +35,7 @@ public class ServiciosIniciativas implements edu.eci.pdsw.samples.services.Servi
         try {
             return daoPaciente.loadIniciativasPorPalabrasClave(palabraClave);
         } catch (PersistenceException ex) {
-            throw new ExcepcionServiciosSuscripciones("Error al realizar la consulta:" + ex.getLocalizedMessage(), ex);
+            throw new ExcepcionServiciosSuscripciones("Error al realizar la consulta de la iniciativa:" + ex.getLocalizedMessage(), ex);
         }
     }
 
@@ -46,7 +44,7 @@ public class ServiciosIniciativas implements edu.eci.pdsw.samples.services.Servi
         try {
             return daoPaciente.loadIniciativasPorEstado(palabraClave);
         } catch (PersistenceException ex) {
-            throw new ExcepcionServiciosSuscripciones("Error al realizar la consulta:" + ex.getLocalizedMessage(), ex);
+            throw new ExcepcionServiciosSuscripciones("Error al realizar la consulta de la iniciativa:" + ex.getLocalizedMessage(), ex);
         }
     }
 
@@ -56,7 +54,7 @@ public class ServiciosIniciativas implements edu.eci.pdsw.samples.services.Servi
         try {
             return daoPaciente.loadAreas();
         } catch (PersistenceException ex) {
-            throw new ExcepcionServiciosSuscripciones("Error al realizar la consulta:"+ex.getLocalizedMessage(), ex);
+            throw new ExcepcionServiciosSuscripciones("Error al realizar la consulta de la iniciativa:"+ex.getLocalizedMessage(), ex);
         }
     }
 
@@ -65,7 +63,7 @@ public class ServiciosIniciativas implements edu.eci.pdsw.samples.services.Servi
         try {
             return daoPaciente.loadCantidadAreas();
         } catch (PersistenceException ex) {
-            throw new ExcepcionServiciosSuscripciones("Error al realizar la consulta:"+ex.getLocalizedMessage(), ex);
+            throw new ExcepcionServiciosSuscripciones("Error al realizar la consulta de la iniciativa:"+ex.getLocalizedMessage(), ex);
         }
     }
 
@@ -75,7 +73,7 @@ public class ServiciosIniciativas implements edu.eci.pdsw.samples.services.Servi
         try {
             daoPaciente.saveIniciativas(iniciativa,palabraClave,area);
         } catch (PersistenceException ex) {
-            throw new ExcepcionServiciosSuscripciones("Error al realizar la consulta:"+ex.getLocalizedMessage(), ex);
+            throw new ExcepcionServiciosSuscripciones("Error al realizar la consulta de la iniciativa:"+ex.getLocalizedMessage(), ex);
         }
     }
 
@@ -84,7 +82,7 @@ public class ServiciosIniciativas implements edu.eci.pdsw.samples.services.Servi
         try {
             daoPaciente.updateIniciativaService(id,iniciativa,estado);
         } catch (PersistenceException ex) {
-            throw new ExcepcionServiciosSuscripciones("Error al realizar la consulta:"+ex.getLocalizedMessage(), ex);
+            throw new ExcepcionServiciosSuscripciones("Error al realizar la consulta de la iniciativa:"+ex.getLocalizedMessage(), ex);
         }
     }
 
@@ -94,7 +92,7 @@ public class ServiciosIniciativas implements edu.eci.pdsw.samples.services.Servi
         try {
             return daoPaciente.loadConsultaUsuarioNombre(nombre);
         } catch (Exception ex) {
-            throw new ExcepcionServiciosSuscripciones("Error al realizar la consulta:"+ex.getLocalizedMessage(), ex);
+            throw new ExcepcionServiciosSuscripciones("Error al realizar la consulta de la iniciativa:"+ex.getLocalizedMessage(), ex);
         }
     }
 

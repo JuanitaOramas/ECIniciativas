@@ -4,14 +4,12 @@ package edu.eci.pdsw.samples.persistence;
 import edu.eci.pdsw.samples.entities.Area;
 import edu.eci.pdsw.samples.entities.Iniciativa;
 import edu.eci.pdsw.samples.entities.Usuario;
-import edu.eci.pdsw.samples.entities.estado;
 
 import java.util.List;
 
 
 public interface DaoIniciativa {
- 
-//    public Iniciativa load(int id, estado estado) throws PersistenceException;
+
 
     public List<Iniciativa> loadIniciativasPorPalabrasClave(String palabraClave) throws PersistenceException;
 

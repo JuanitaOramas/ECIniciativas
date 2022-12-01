@@ -16,20 +16,6 @@
  */
 package edu.eci.pdsw.samples.tests;
 
-import edu.eci.pdsw.samples.entities.Iniciativa;
-import edu.eci.pdsw.samples.entities.Usuario;
-import edu.eci.pdsw.samples.entities.estado;
-import edu.eci.pdsw.samples.services.ExcepcionServiciosSuscripciones;
-import edu.eci.pdsw.samples.services.ServiciosIniciativasFactory;
-
-import java.sql.*;
-import java.util.List;
-
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-
 /**
  *
  * @author hcadavid

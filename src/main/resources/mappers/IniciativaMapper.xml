@@ -27,7 +27,7 @@
         FROM
             INICIATIVAS as i
                 join palabrasclave as p on i.idIniciativa = p.iniciativas_idIniciativa
-        WHERE (p.palabra=#{Palabra});
+        WHERE (p.palabra=#{palabra});
 
     </select>
 

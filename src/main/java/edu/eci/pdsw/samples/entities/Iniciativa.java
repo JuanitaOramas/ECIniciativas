@@ -26,7 +26,7 @@ public class Iniciativa {
     private int idIniciativa;
     private String estado;
     private String descripcion;
-//    private String palabrasClave;
+
     private Date fecha;
 
 
@@ -35,9 +35,9 @@ public class Iniciativa {
         this.idIniciativa = idIniciativa;
         this.estado = estado;
         this.descripcion = descripcion;
-//        this.palabrasClave = palabrasClave;
+
         this.fecha = fecha;
-//        consultas=new ArrayList<>();
+
     }
 
     public int getIdIniciativa() { return idIniciativa; }
@@ -48,18 +48,12 @@ public class Iniciativa {
     public String getDescripcion() {return descripcion;}
     public void setDescripcion(String descripcion) {this.descripcion = descripcion;}
 
-//    public String getPalabrasClave() {return palabrasClave;}
-//    public void setPalabrasClave(String palabrasClave) {this.palabrasClave = palabrasClave;}
-
     public Date getFecha() {return fecha;}
     public void setFecha(Date fecha) {this.fecha = fecha;}
 
         @Override
     public String toString() {
-        StringBuffer rep = new StringBuffer("Iniciativa: { id:"+idIniciativa+", estado:"+estado+", descripcion: "+descripcion);
-//        for (Consulta c:consultas){
-//            rep.append(c+"\n");
-//        }
+        StringBuilder rep = new StringBuilder("Iniciativa: { id:"+idIniciativa+", estado:"+estado+", descripcion: "+descripcion);
         rep.append("]");
         return rep.toString();
     }
@@ -67,4 +61,3 @@ public class Iniciativa {
     
     
 }
-//

@@ -1,7 +1,7 @@
 
 package edu.eci.pdsw.samples.services;
 /**
- * @author 2106913
+ *
  */
 public class ExcepcionServiciosSuscripciones extends Exception {
 

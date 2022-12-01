@@ -16,12 +16,8 @@
  */
 package edu.eci.pdsw.samples.persistence.mybatisimpl.mappers;
 
-import edu.eci.pdsw.samples.entities.Iniciativa;
 import edu.eci.pdsw.samples.entities.Usuario;
-import edu.eci.pdsw.samples.entities.estado;
 import org.apache.ibatis.annotations.Param;
-
-import java.util.List;
 
 
 public interface UsuarioMapper {

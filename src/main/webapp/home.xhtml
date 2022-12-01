@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:o="http://omnifaces.org/ui"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Consulta de Iniciativas</title>
+    <style>
+        @font-face {
+            font-family: 'Poppins', sans-serif;
+            src: url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500');
+        }
+
+        body {
+            background: #F3F3F1;
+            font-family: 'Poppins', sans-serif;
+        }
+
+
+        .main {
+            display: flex;
+            justify-content: space-evenly;
+            align-content: center;
+            align-items: center;
+            width: 100%;
+            height: 85vh;
+        }
+
+        .title {
+            color: #000000;
+            font-weight: bolder;
+            font-size: 40px;
+            text-shadow: 0px 5px 5px rgba(53,67,60,0.58);
+        }
+        .subtitle {
+            color: lightgray;
+            font-weight: 300;
+            font-size: 20px;
+            margin-bottom: 100px;
+            font-family:"Lucida Bright";
+
+        }
+
+        .startButton {
+            color:white;
+            outline: none;
+            border-radius: 10px;
+            font-weight: bolder;
+            margin-top: 10px;
+            background-color: #455a64;
+            padding: 15px 25px;
+            text-decoration: none;
+        }
+
+        .homeImage {
+            margin-top: 40px;
+        }
+
+    </style>
+</h:head>
+<h:body>
+
+    <div class="main">
+        <div>
+                <p class="subtitle">IDEAS platform</p>
+            <div>
+                <p class="title">Share your ideas <br/> with the community!</p>
+                <h:form id="formIniciativas">
+
+                    <h:commandLink value="Start" action="consultarIniciativas" class="startButton"/>
+                </h:form>
+            </div>
+
+        </div>
+        <div class = "homeImage">
+            <img alt="social_media" src="images/HomeImage.png" />
+        </div>
+
+    </div>
+
+
+</h:body>
+</html>
+

@@ -12,12 +12,10 @@
         body {
             background: #F3F3F1;
         }
-
         .ui-datatable.borderless th,.ui-datatable.borderless td {
             padding: 15px;
             text-align: left;
         }
-
         .ui-datatable.borderless tbody,
         .ui-datatable.borderless th,
         .ui-datatable.borderless td {
@@ -26,13 +24,11 @@
             color: coral;
             border-collapse:collapse;
             font-family: "Bell MT";
-
         }
         ul, ol {
             list-style: none;
 
         }
-
 
         .nav {
             Background-color:white;
@@ -61,6 +57,14 @@
             position:absolute;
         }
 
+        .consultaIniciativa {
+            display: block;
+            align-content: center;
+            align-items: center;
+            width: 80vw;
+            margin: auto;
+        }
+
     </style>
 </h:head>
 <h:body>
@@ -75,50 +79,50 @@
     </script>
 
     <h:form id="formIniciativas">
-        <div class = "nav-bar">
-            <ul class = "nav">
-                <li> Inicio </li>
-                <li> Consultar </li>
-                    <li class = "nav-sub"></li>
+        <div class="mainIniciativas">
 
-                        <li><a href=""><h:commandLink value="Consultar iniciativas" action="consultarIniciativas" /></a></li>
-                        <li><a href=""><h:commandLink value="Consultar iniciativas Agrupadas " action="consultaAgruparIniciativas" /></a></li>
-                        <li><a href=""><h:commandLink value="Consultar iniciativas por palabra clave" action="consultaIniciativaPalabraClave" /></a></li>
-                        <li><a href=""><h:commandLink value="Consultar iniciativas por usuario" action="consultaUsuario" /></a></li>
+            <div class = "nav-bar">
+                <ul class = "nav">
+                    <li><a href=""><h:commandLink value="Home" action="home" /></a></li>
+                    <li> Consultar </li>
+                        <li class = "nav-sub"></li>
+                            <li><a href=""><h:commandLink value="Consultar iniciativas" action="consultarIniciativas" /></a></li>
+                            <li><a href=""><h:commandLink value="Consultar iniciativas Agrupadas " action="consultaAgruparIniciativas" /></a></li>
+                            <li><a href=""><h:commandLink value="Consultar iniciativas por palabra clave" action="consultaIniciativaPalabraClave" /></a></li>
+                            <li><a href=""><h:commandLink value="Consultar iniciativas por usuario" action="consultaUsuario" /></a></li>
+                    <li><h:commandLink value="Registrar iniciativa" action="registraIniciativa" /></li>
+                    <li> Iniciar sesion </li>
+                </ul>
+            </div>
 
+            <div class="consultaIniciativa">
+                <h1>Consultar Iniciativas</h1>
 
-                <li><h:commandLink value="Registrar iniciativa" action="registraIniciativa" /></li>
-                <li> Iniciar sesion </li>
-            </ul>
+                <p:dataTable id="iniciativas" var="iniciativas" value="#{mb.getIniciativas()}" paginator="true" paginatorposition="bottom" rows="9" dynamic="true"  >
+                    <p:column headerText="Id">
+                        <h:link value="#{iniciativas.idIniciativa}" outcome="modificarIniciativa">
+                            <f:param name="id" value="#{iniciativas.idIniciativa}" />
+                        </h:link>
+                    </p:column>
+                    <p:column headerText="estado">
+                        <h:outputText value="#{iniciativas.estado}" />
+                    </p:column>
+                    <p:column headerText="descripción">
+                        <h:outputText value="#{iniciativas.descripcion}" />
+                    </p:column>
+                    <p:column headerText="fecha">
+                        <h:outputText value="#{iniciativas.fecha}" />
+                    </p:column>
+                </p:dataTable>
+                <p:chart type="bar" model="#{statistics.viviendas}" style="height:300px" widgetVar="chart" />
+                <p:commandButton type="button" value="Export Image ↓ "  onclick="exportChart()"/>
+
+                <p:commandButton value="Exportar como PDF" ajax="false" >
+                    <p:dataExporter type="pdf" target="iniciativas" fileName="DatosIniciativas"/>
+                </p:commandButton>
+            </div>
+
         </div>
-        <h1>Bienvenido!</h1>
-        <h1>Consultar Iniciativas</h1>
-
-        <p:dataTable id="iniciativas" var="iniciativas" value="#{mb.getIniciativas()}" paginator="true" paginatorposition="bottom" rows="9" dynamic="true"  >
-            <p:column headerText="Id">
-                <h:link value="#{iniciativas.idIniciativa}" outcome="modificarIniciativa">
-                    <f:param name="id" value="#{iniciativas.idIniciativa}" />
-                </h:link>
-            </p:column>
-            <p:column headerText="estado">
-                <h:outputText value="#{iniciativas.estado}" />
-            </p:column>
-            <p:column headerText="descripción">
-                <h:outputText value="#{iniciativas.descripcion}" />
-            </p:column>
-<!--            <p:column headerText="palabrasClave">-->
-<!--                <h:outputText value="#{iniciativas.palabrasClave}" />-->
-<!--            </p:column>-->
-            <p:column headerText="fecha">
-                <h:outputText value="#{iniciativas.fecha}" />
-            </p:column>
-        </p:dataTable>
-        <p:chart type="bar" model="#{statistics.viviendas}" style="height:300px" widgetVar="chart" />
-        <p:commandButton type="button" value="Export Image ↓ "  onclick="exportChart()"/>
-
-        <p:commandButton value="Exportar como PDF" ajax="false" >
-            <p:dataExporter type="pdf" target="iniciativas" fileName="DatosIniciativas"/>
-        </p:commandButton>
 
     </h:form>
 

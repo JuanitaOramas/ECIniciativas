@@ -32,7 +32,7 @@ public class Area {
 
     @Override
     public String toString() {
-        StringBuffer repArea = new StringBuffer(idArea + "");
+        StringBuilder repArea = new StringBuilder(idArea + "");
         return repArea.toString();
     }
 
