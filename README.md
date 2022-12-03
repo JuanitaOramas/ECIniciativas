@@ -21,6 +21,7 @@ Sprint 1:
 
 <imagen>
 Burndown Trend
+
 ![img_5.png](img_5.png)
 
 Sprint 2:
@@ -41,27 +42,29 @@ Se procede a implementarlo en los servicios de Azure, usando una base de datos M
 
 
 ![img_3.png](img_3.png)
+
 Servidor:
 
 ![img_4.png](img_4.png)
 
 Pantalla de home:
+
 ![img.png](img.png)
 
 
 #### Los items más importantes desarrollados durante el sprint fueron:
 
-* Consultar iniciativas:
+* Consultar iniciativas
 
-* Consultar iniciativas por palabra clave:
+* Consultar iniciativas por palabra clave
 
-* Consultar iniciativas por usuario:
+* Consultar iniciativas por usuario
 
-* consultar iniciativas agrupadas:
+* consultar iniciativas agrupadas
 
-* modificar una iniciativa:
+* modificar una iniciativa
 
-* Reporte de las iniciativas por estado:
+* Reporte de las iniciativas por estado
 
 
 
