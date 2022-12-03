@@ -11,20 +11,12 @@ import edu.eci.pdsw.samples.entities.Iniciativa;
  * @author
  */
 public interface ServiciosIniciativas {
-//falta
-    public List<Iniciativa> consultarIniciativas() throws ExcepcionServiciosSuscripciones;
-
-    public List<Iniciativa>  consultarIniciativasPorPalabraClave(String palabraClave) throws ExcepcionServiciosSuscripciones;
-
-
-    public List<Iniciativa>  consultarIniciativasPorEstado(String palabraClave) throws ExcepcionServiciosSuscripciones;
-
+     public List<Iniciativa> consultarIniciativas() throws ExcepcionServiciosSuscripciones;
+     public List<Iniciativa>  consultarIniciativasPorPalabraClave(String palabraClave) throws ExcepcionServiciosSuscripciones;
+     public List<Iniciativa>  consultarIniciativasPorEstado(String palabraClave) throws ExcepcionServiciosSuscripciones;
      public List<Area> consultarAreas( ) throws ExcepcionServiciosSuscripciones;
-
      public List<Area> consultarCantidadAreas( ) throws ExcepcionServiciosSuscripciones;
-//falta
      public void insertIniciativas(String iniciativa, String palabraClave, String area ) throws ExcepcionServiciosSuscripciones;
-//falta
      public void updateIniciativaService(int id, String iniciativa, String estado ) throws ExcepcionServiciosSuscripciones;
 //falta
     public List<Iniciativa> consultarIniciativasPorNombreUsuario(String nombre) throws ExcepcionServiciosSuscripciones;
