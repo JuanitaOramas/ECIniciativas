@@ -22,7 +22,7 @@ public class updateIniciativaService {
 
     @After
     public void clearDB() throws SQLException {
-        Connection conn = DriverManager.getConnection("jdbc:mysql://testanonimous.mysql.database.azure.com:3306/iniciativas_test?useSSL=false", "anonimous", "Sebastian1234");
+        Connection conn = DriverManager.getConnection("jdbc:mysql://eciserver.mysql.database.azure.com:3306/test?useSSL=false", "admineci", "Password!");
         Statement stmt = conn.createStatement();
         stmt.execute("delete from iniciativas");
         stmt.execute("delete from usuarios");
@@ -37,7 +37,7 @@ public class updateIniciativaService {
      * //
      */
     private Connection getConnection() throws SQLException {
-        return DriverManager.getConnection("jdbc:mysql://testanonimous.mysql.database.azure.com:3306/iniciativas_test?useSSL=false", "anonimous", "Sebastian1234");
+        return DriverManager.getConnection("jdbc:mysql://eciserver.mysql.database.azure.com:3306/test?useSSL=false", "admineci", "Password!");
     }
 
     @Test
