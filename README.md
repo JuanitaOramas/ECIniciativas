@@ -12,7 +12,7 @@ La Plataforma banco de iniciativas de proyectos, es una herramienta donde la com
 Colombiana de Ingeniería Julio Garavito pueden registrar sus iniciativas e ideas de proyectos para ser desarrollados o 
 gestionados por la PMO de la Escuela.  
 
-En la cual se pueden consultar otras iniciativas, las cuales están agrupadas por un area.
+En la cual se pueden consultar otras iniciativas, las cuales están agrupadas por un area, consultar por el estado de la iniciativa.
 
 ### Gestión del proyecto
 Se realizaron 2 sprints. Se cuenta con el burndown chart de cada uno:
@@ -29,7 +29,7 @@ Sprint 2:
 <imagen>
 
 
-
+![img_6.png](img_6.png) ![img_7.png](img_7.png)
 
 #### Definicion del diseño de la base de datos
 Se define el modelo entidad relación:
@@ -47,6 +47,8 @@ Servidor:
 
 ![img_4.png](img_4.png)
 
+Para la implementación en un principio se creó
+
 Pantalla de home:
 
 ![img.png](img.png)
@@ -54,17 +56,20 @@ Pantalla de home:
 
 #### Los items más importantes desarrollados durante el sprint fueron:
 
-* Consultar iniciativas
+* **Consultar iniciativas**
 
-* Consultar iniciativas por palabra clave
+* **Consultar iniciativas por palabra clave**
 
-* Consultar iniciativas por usuario
+  La consulta arroja todas las ideas o iniciativas que contengan las palabras clave dadas sin importar el orden.
+* **Consultar iniciativas por usuario**
 
-* consultar iniciativas agrupadas
+* **consultar iniciativas agrupadas**
 
-* modificar una iniciativa
+* **modificar una iniciativa.**
 
-* Reporte de las iniciativas por estado
+  El sistema solo debe permitir modificar una iniciativa o idea en el estado "en espera de revisión".
+
+* **Reporte de las iniciativas por estado**
 
 
 
@@ -72,6 +77,7 @@ Pantalla de home:
 Usando la herramienta de SonarQube se realizó un análisis de código estático sobre el proyecto y se encontró:
 
 ![img_2.png](img_2.png)
+3.8% al momento
 
 
 
