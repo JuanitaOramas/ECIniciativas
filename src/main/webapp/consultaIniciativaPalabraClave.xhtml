@@ -41,9 +41,9 @@
             <p:inputText id="identificacion_paciente" binding="#{input}" ></p:inputText>
 
 
-            <p:commandButton  action="#{iniciativaPalabraClave.getIniciativasPorPalabraClave(input.value)}" value="Consultar" update="iniciativas"></p:commandButton>
+            <p:commandButton  action="#{iniciativaPalabraClave.getIniciativasPorPalabraClave(input.value)}" value="Consultar" update="iniciativasPalabraClave"></p:commandButton>
 
-        <p:dataTable id="iniciativas" var="iniciativa" value="#{iniciativaPalabraClave.getIniciativasPorPalabraClaveList()}" lazy="false" paginator="true" paginatorposition="bottom" rows="10" dynamic="true" styleClass="borderless">
+        <p:dataTable id="iniciativasPalabraClave" var="iniciativa" value="#{iniciativaPalabraClave.getIniciativasPorPalabraClaveList()}" lazy="false" paginator="true" paginatorposition="bottom" rows="10" dynamic="true" styleClass="borderless">
             <p:column headerText="Id">
                 <h:outputText value="#{iniciativa.idIniciativa}" />
             </p:column>
@@ -53,9 +53,6 @@
             <p:column headerText="descripción">
                 <h:outputText value="#{iniciativa.descripcion}" />
         </p:column>
-            <!--            <p:column headerText="palabrasClave">-->
-            <!--                <h:outputText value="#{iniciativas.palabrasClave}" />-->
-            <!--            </p:column>-->
             <p:column headerText="fecha">
                 <h:outputText value="#{iniciativa.fecha}" />
             </p:column>

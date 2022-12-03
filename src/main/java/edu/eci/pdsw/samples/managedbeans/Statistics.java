@@ -36,11 +36,12 @@ public class Statistics extends BasePageBean  {
 
     @PostConstruct
     public void init(){
-        viviendas = new HorizontalBarChartModel();
-        final ChartSeries venta = countAreas();
 
         estados = new HorizontalBarChartModel();
         final ChartSeries estadosCantidad = countEstados();
+
+        viviendas = new HorizontalBarChartModel();
+        final ChartSeries venta = countAreas();
 
 
         viviendas.addSeries(venta);

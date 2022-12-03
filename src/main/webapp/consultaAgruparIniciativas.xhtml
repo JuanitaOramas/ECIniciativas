@@ -51,14 +51,14 @@
         <h:selectOneMenu  value="En espera de revisión" binding="#{estado}" >
             <f:selectItem itemValue="Revision" itemLabel="Revision" />
                 <f:selectItem itemValue="Aprobado" itemLabel="Aprobado" />
-            <f:selectItem itemValue="Rechazada" itemLabel="Rechazada" />
+            <f:selectItem itemValue="Rechazado" itemLabel="Rechazado" />
             <f:selectItem itemValue="En espera de revisión" itemLabel="En espera de revisión" />
         </h:selectOneMenu >
         </div>
 
-        <p:commandButton  action="#{agrupaIniciativa.getIniciativasPorEstado(estado.value)}" value="Consultar" update="iniciativas"></p:commandButton>
+        <p:commandButton  action="#{agrupaIniciativa.getIniciativasPorEstado(estado.value)}" value="Consultar" update="iniciativasAgrupar"></p:commandButton>
 
-        <p:dataTable id="iniciativas" var="iniciativa" value="#{agrupaIniciativa.getIniciativasPorPalabraClaveList()}" lazy="false" paginator="true" paginatorposition="bottom" rows="10" dynamic="true" styleClass="borderless">
+        <p:dataTable id="iniciativasAgrupar" var="iniciativa" value="#{agrupaIniciativa.getIniciativasPorPalabraClaveList()}" lazy="false" paginator="true" paginatorposition="bottom" rows="10" dynamic="true" styleClass="borderless">
             <p:column headerText="Id">
                 <h:outputText value="#{iniciativa.idIniciativa}" />
             </p:column>
@@ -77,7 +77,7 @@
         <p:commandButton type="button" value="Export Image ↓ "  onclick="exportChart()"/>
 
         <p:commandButton value="Exportar como PDF" ajax="false" >
-            <p:dataExporter type="pdf" target="iniciativas" fileName="DatosIniciativas"/>
+            <p:dataExporter type="pdf" target="iniciativasAgrupar" fileName="DatosIniciativas"/>
         </p:commandButton>
 
     </h:form>

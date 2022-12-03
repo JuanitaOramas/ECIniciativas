@@ -12,6 +12,12 @@
         body {
             background: #F3F3F1;
         }
+
+        @font-face {
+            font-family: 'Poppins', sans-serif;
+            src: url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500');
+        }
+
         .ui-datatable.borderless th,.ui-datatable.borderless td {
             padding: 15px;
             text-align: left;
@@ -21,9 +27,9 @@
         .ui-datatable.borderless td {
             border-style: none;
             background-color: white;
-            color: coral;
+            color: black;
             border-collapse:collapse;
-            font-family: "Bell MT";
+            font-family: 'Poppins', sans-serif;
         }
         ul, ol {
             list-style: none;
@@ -52,12 +58,9 @@
             float: left;
             display:block;
         }
-        .nav li :hover > ul{
-            display:block;
-            position:absolute;
-        }
 
-        .consultaIniciativa {
+
+        .consultar {
             display: block;
             align-content: center;
             align-items: center;
@@ -85,20 +88,21 @@
                 <ul class = "nav">
                     <li><a href=""><h:commandLink value="Home" action="home" /></a></li>
                     <li> Consultar </li>
-                        <li class = "nav-sub"></li>
-                            <li><a href=""><h:commandLink value="Consultar iniciativas" action="consultarIniciativas" /></a></li>
-                            <li><a href=""><h:commandLink value="Consultar iniciativas Agrupadas " action="consultaAgruparIniciativas" /></a></li>
-                            <li><a href=""><h:commandLink value="Consultar iniciativas por palabra clave" action="consultaIniciativaPalabraClave" /></a></li>
-                            <li><a href=""><h:commandLink value="Consultar iniciativas por usuario" action="consultaUsuario" /></a></li>
+                    <li><h:commandLink value="Registrar iniciativa" action="registraIniciativa" /></li>
+                    <li class = "nav-sub"></li>
+                    <li><a href=""><h:commandLink value="Consultar iniciativas" action="consultarIniciativas" /></a></li>
+                    <li><a href=""><h:commandLink value="Consultar iniciativas Agrupadas " action="consultaAgruparIniciativas" /></a></li>
+                    <li><a href=""><h:commandLink value="Consultar iniciativas por palabra clave" action="consultaIniciativaPalabraClave" /></a></li>
+                    <li><a href=""><h:commandLink value="Consultar iniciativas por usuario" action="consultaUsuario" /></a></li>
                     <li><h:commandLink value="Registrar iniciativa" action="registraIniciativa" /></li>
                     <li> Iniciar sesion </li>
                 </ul>
             </div>
 
-            <div class="consultaIniciativa">
+            <div class="consultar consultaIniciativa">
                 <h1>Consultar Iniciativas</h1>
 
-                <p:dataTable id="iniciativas" var="iniciativas" value="#{mb.getIniciativas()}" paginator="true" paginatorposition="bottom" rows="9" dynamic="true"  >
+                <p:dataTable id="iniciativas" var="iniciativas" value="#{mb.getIniciativas()}" paginator="true" paginatorposition="bottom" rows="9" dynamic="true"  styleClass="borderless" >
                     <p:column headerText="Id">
                         <h:link value="#{iniciativas.idIniciativa}" outcome="modificarIniciativa">
                             <f:param name="id" value="#{iniciativas.idIniciativa}" />
@@ -121,7 +125,6 @@
                     <p:dataExporter type="pdf" target="iniciativas" fileName="DatosIniciativas"/>
                 </p:commandButton>
             </div>
-
         </div>
 
     </h:form>

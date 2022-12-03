@@ -41,7 +41,7 @@
 
     <insert id="insertIniciativas" >
         INSERT INTO iniciativas (estado, descripcion, fecha, usuarios_idUsuario, areas_idArea)
-        VALUES ("Otro Nuevo","defecto",now(),3,3);
+        VALUES ("En espera de revisión",#{iniciativa},now(),3,#{area});
 
     </insert>
 
