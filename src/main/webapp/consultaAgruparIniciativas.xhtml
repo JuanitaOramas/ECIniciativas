@@ -31,6 +31,27 @@
             border-collapse:collapse;
             font-family: "Bell MT";
         }
+
+        @font-face {
+            font-family: 'Poppins', sans-serif;
+            src: url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500');
+        }
+
+        .consultarTitle {
+            color: rgb(153,0,0);
+            font-weight: bolder;
+            font-size: 34px;
+            text-shadow: 0px 5px 5px rgba(53,67,60,0.58);
+            font-family: 'Poppins', sans-serif;
+        }
+        .consultar {
+            display: block;
+            align-content: center;
+            align-items: center;
+            width: 80vw;
+            margin: auto;
+        }
+
     </style>
 </h:head>
 
@@ -45,7 +66,10 @@
         }
     </script>
 
-    <h1>Consultar Iniciativas por Estado</h1>
+    <div class="consultar " >
+
+
+    <h1 class="consultarTitle">Consultar Iniciativas por Estado</h1>
     <h:form>
         <div>
         <h:selectOneMenu  value="En espera de revisión" binding="#{estado}" >
@@ -84,6 +108,7 @@
     <p:dialog widgetVar="dlg" showEffect="fade" modal="true" header="Chart as an Image" resizable="false">
         <p:outputPanel id="output" layout="block" style="width:500px;height:300px"/>
     </p:dialog>
+    </div>
 </h:body>
 </html>
 

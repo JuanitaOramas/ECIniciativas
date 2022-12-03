@@ -78,13 +78,13 @@ public class Statistics extends BasePageBean  {
             for(Iniciativa i : iniciativaList) {
                 if(i.getEstado().equals("Aprobado")) aprobado+=1;
                 else if (i.getEstado().equals("En espera de revisión")) esperaRevision+=1;
-                else if (i.getEstado().equals("Rechazada")) rechazada+=1;
+                else if (i.getEstado().equals("Rechazado")) rechazada+=1;
                 else if (i.getEstado().equals("Revision")) revision+=1;
 
             }
             estados.set("Aprobado", aprobado);
             estados.set("En espera de revisión", esperaRevision);
-            estados.set("Rechazada", rechazada);
+            estados.set("Rechazado", rechazada);
             estados.set("Revision", revision);
             return estados;
 

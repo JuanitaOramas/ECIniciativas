@@ -27,10 +27,34 @@
             border-collapse:collapse;
             font-family: "Bell MT";
         }
+
+        @font-face {
+            font-family: 'Poppins', sans-serif;
+            src: url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500');
+        }
+
+        .consultarTitle {
+            color: rgb(153,0,0);
+            font-weight: bolder;
+            font-size: 34px;
+            text-shadow: 0px 5px 5px rgba(53,67,60,0.58);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .consultar {
+            display: block;
+            align-content: center;
+            align-items: center;
+            width: 80vw;
+            margin: auto;
+        }
+
     </style>
 </h:head>
 <h:body>
-    <h1>Consulta de Usuarios</h1>
+    <div class="consultar " >
+
+    <h1 class="consultarTitle">Consulta de Usuarios</h1>
 
     <h:form>
         <div class="formgrid grid">
@@ -60,5 +84,7 @@
 
 
     </h:form>
+
+    </div>
 </h:body>
 </html>

@@ -68,6 +68,14 @@
             margin: auto;
         }
 
+        .consultarTitle {
+            color: rgb(153,0,0);
+            font-weight: bolder;
+            font-size: 34px;
+            text-shadow: 0px 5px 5px rgba(53,67,60,0.58);
+            font-family: 'Poppins', sans-serif;
+        }
+
     </style>
 </h:head>
 <h:body>
@@ -86,21 +94,19 @@
 
             <div class = "nav-bar">
                 <ul class = "nav">
-                    <li><a href=""><h:commandLink value="Home" action="home" /></a></li>
-                    <li> Consultar </li>
-                    <li><h:commandLink value="Registrar iniciativa" action="registraIniciativa" /></li>
+                    <li><a href=""><h:commandLink value="Home" action="home" style="text-decoration:none;color:slategrey;"/></a></li>
                     <li class = "nav-sub"></li>
-                    <li><a href=""><h:commandLink value="Consultar iniciativas" action="consultarIniciativas" /></a></li>
-                    <li><a href=""><h:commandLink value="Consultar iniciativas Agrupadas " action="consultaAgruparIniciativas" /></a></li>
-                    <li><a href=""><h:commandLink value="Consultar iniciativas por palabra clave" action="consultaIniciativaPalabraClave" /></a></li>
-                    <li><a href=""><h:commandLink value="Consultar iniciativas por usuario" action="consultaUsuario" /></a></li>
-                    <li><h:commandLink value="Registrar iniciativa" action="registraIniciativa" /></li>
-                    <li> Iniciar sesion </li>
+                    <li><a><h:commandLink value="Consultar iniciativas" action="consultarIniciativas" style="text-decoration:none;color:slategrey;"/></a></li>
+                    <li><a><h:commandLink value="Consultar iniciativas Agrupadas " action="consultaAgruparIniciativas" style="text-decoration:none;color:slategrey;"/></a></li>
+                    <li><a><h:commandLink value="Consultar iniciativas por palabra clave" action="consultaIniciativaPalabraClave" style="text-decoration:none;color:slategrey;" /></a></li>
+                    <li><a><h:commandLink value="Consultar iniciativas por usuario" action="consultaUsuario" style="text-decoration:none;color:slategrey;" /></a></li>
+                    <li><h:commandLink value="Registrar iniciativa" action="registraIniciativa" style="text-decoration:none;color:slategrey;"/></li>
+
                 </ul>
             </div>
 
             <div class="consultar consultaIniciativa">
-                <h1>Consultar Iniciativas</h1>
+                <h1 class="consultarTitle">Consultar Iniciativas</h1>
 
                 <p:dataTable id="iniciativas" var="iniciativas" value="#{mb.getIniciativas()}" paginator="true" paginatorposition="bottom" rows="9" dynamic="true"  styleClass="borderless" >
                     <p:column headerText="Id">
@@ -118,10 +124,11 @@
                         <h:outputText value="#{iniciativas.fecha}" />
                     </p:column>
                 </p:dataTable>
-                <p:chart type="bar" model="#{statistics.viviendas}" style="height:300px" widgetVar="chart" />
-                <p:commandButton type="button" value="Export Image ↓ "  onclick="exportChart()"/>
+                <br/>
+                <p:chart type="bar" model="#{statistics.viviendas}" style="height:300px;" widgetVar="chart" />
+                <p:commandButton type="button" value="Export Image ↓ "  onclick="exportChart()" style="background-color:white;"/>
 
-                <p:commandButton value="Exportar como PDF" ajax="false" >
+                <p:commandButton value="Exportar como PDF" ajax="false" style="background-color:white;">
                     <p:dataExporter type="pdf" target="iniciativas" fileName="DatosIniciativas"/>
                 </p:commandButton>
             </div>
@@ -130,7 +137,7 @@
     </h:form>
 
     <p:dialog widgetVar="dlg" showEffect="fade" modal="true" header="Chart as an Image" resizable="false">
-        <p:outputPanel id="output" layout="block" style="width:500px;height:300px"/>
+        <p:outputPanel id="output" layout="block" style="width:500px;height:300px;color:lightpink;"/>
     </p:dialog>
 
 

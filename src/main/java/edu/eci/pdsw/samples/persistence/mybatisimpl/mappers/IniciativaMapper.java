@@ -26,7 +26,7 @@ public interface IniciativaMapper {
 
     List<Iniciativa> getIniciativas();
 
-    List<Iniciativa> getIniciativasPorPalabraClave(@Param("Palabra")  String palabra);
+    List<Iniciativa> getIniciativasPorPalabraClave(@Param("palabra")  String palabra);
 
     List<Iniciativa> getIniciativasPorEstado(@Param("estado")  String estado);
 
