@@ -13,7 +13,7 @@ import edu.eci.pdsw.samples.entities.Iniciativa;
 public interface ServiciosIniciativas {
 //falta
     public List<Iniciativa> consultarIniciativas() throws ExcepcionServiciosSuscripciones;
-        
+
     public List<Iniciativa>  consultarIniciativasPorPalabraClave(String palabraClave) throws ExcepcionServiciosSuscripciones;
 
 
